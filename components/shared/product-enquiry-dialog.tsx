@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import { Send, Loader2, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 import {
   Dialog,
@@ -47,7 +48,10 @@ export function ProductEnquiryDialog({
   const [phoneValue, setPhoneValue] = useState("");
   const [countryCode, setCountryCode] = useState("+91");
 
-  const defaultMessage = `I'm interested in ${product.name} (Model: ${product.model}). Please provide more information about pricing, availability, and technical specifications.`;
+  const t = useTranslations("enquiryForm");
+  const tForm = useTranslations("contactForm");
+
+  const defaultMessage = t("defaultMessage", { productName: product.name, model: product.model });
 
   const {
     register,
@@ -140,9 +144,9 @@ export function ProductEnquiryDialog({
             <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
               <CheckCircle className="h-8 w-8 text-accent" />
             </div>
-            <h3 className="text-xl font-semibold text-foreground mb-2">Enquiry Sent!</h3>
+            <h3 className="text-xl font-semibold text-foreground mb-2">{t("successTitle")}</h3>
             <p className="text-muted-foreground">
-              Thank you for your interest in {product.name}. Our team will get back to you within 24 hours.
+              {t("successMessage", { productName: product.name })}
             </p>
           </motion.div>
         ) : (
@@ -178,17 +182,17 @@ export function ProductEnquiryDialog({
             {/* Form */}
             <form onSubmit={handleSubmit(onSubmit)} className="p-6 space-y-4">
               <DialogHeader className="p-0 mb-4">
-                <DialogTitle className="text-lg text-foreground">Enquire About This Product</DialogTitle>
+                <DialogTitle className="text-lg text-foreground">{t("title")}</DialogTitle>
               </DialogHeader>
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="firstName" className="text-foreground">
-                    First Name <span className="text-accent">*</span>
+                    {tForm("firstName")} <span className="text-accent">*</span>
                   </Label>
                   <Input
                     id="firstName"
-                    placeholder="John"
+                    placeholder={tForm("firstNamePlaceholder")}
                     {...register("firstName")}
                     className={errors.firstName ? "border-destructive" : ""}
                   />
@@ -199,11 +203,11 @@ export function ProductEnquiryDialog({
 
                 <div className="space-y-2">
                   <Label htmlFor="lastName" className="text-foreground">
-                    Last Name <span className="text-accent">*</span>
+                    {tForm("lastName")} <span className="text-accent">*</span>
                   </Label>
                   <Input
                     id="lastName"
-                    placeholder="Doe"
+                    placeholder={tForm("lastNamePlaceholder")}
                     {...register("lastName")}
                     className={errors.lastName ? "border-destructive" : ""}
                   />
@@ -215,12 +219,12 @@ export function ProductEnquiryDialog({
 
               <div className="space-y-2">
                 <Label htmlFor="email" className="text-foreground">
-                  Email <span className="text-accent">*</span>
+                  {tForm("email")} <span className="text-accent">*</span>
                 </Label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="john@company.com"
+                  placeholder={tForm("emailPlaceholder")}
                   {...register("email")}
                   className={errors.email ? "border-destructive" : ""}
                 />
@@ -230,10 +234,10 @@ export function ProductEnquiryDialog({
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="phone" className="text-foreground">Phone (optional)</Label>
+                <Label htmlFor="phone" className="text-foreground">{tForm("phone")}</Label>
                 <PhoneInput
                   id="phone"
-                  placeholder="98765 43210"
+                  placeholder={tForm("phonePlaceholder")}
                   value={phoneValue}
                   onChange={handlePhoneChange}
                   countryCode={countryCode}
@@ -242,17 +246,17 @@ export function ProductEnquiryDialog({
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="company" className="text-foreground">Company (optional)</Label>
+                <Label htmlFor="company" className="text-foreground">{tForm("company")}</Label>
                 <Input
                   id="company"
-                  placeholder="Your Company"
+                  placeholder={tForm("companyPlaceholder")}
                   {...register("company")}
                 />
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="message" className="text-foreground">
-                  Message <span className="text-accent">*</span>
+                  {tForm("message")} <span className="text-accent">*</span>
                 </Label>
                 <Textarea
                   id="message"
@@ -274,11 +278,11 @@ export function ProductEnquiryDialog({
                 {isSubmitting ? (
                   <>
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                    Sending...
+                    {t("sending")}
                   </>
                 ) : (
                   <>
-                    Send Enquiry
+                    {t("sendEnquiry")}
                     <Send className="ml-2 h-5 w-5" />
                   </>
                 )}

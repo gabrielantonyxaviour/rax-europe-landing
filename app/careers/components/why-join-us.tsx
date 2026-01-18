@@ -2,47 +2,56 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
-const benefits = [
+const benefitKeys = [
   {
+    key: "innovation",
+    titleKey: "innovationFirst",
+    descriptionKey: "innovationDescription",
     image: "/careers/innovation.png",
-    title: "Innovation First",
-    description: "Work on cutting-edge IoT and automation technologies",
     className: "md:col-span-2 md:row-span-2",
   },
   {
+    key: "growth",
+    titleKey: "growthOpportunities",
+    descriptionKey: "growthDescription",
     image: "/careers/growth-opportunities.png",
-    title: "Growth Opportunities",
-    description: "Clear career paths and continuous learning",
     className: "md:col-span-1 md:row-span-1",
   },
   {
+    key: "balance",
+    titleKey: "workLifeBalance",
+    descriptionKey: "workLifeDescription",
     image: "/careers/work-life-balance.png",
-    title: "Work-Life Balance",
-    description: "Flexible arrangements and supportive culture",
     className: "md:col-span-1 md:row-span-1",
   },
   {
+    key: "impact",
+    titleKey: "globalImpact",
+    descriptionKey: "globalDescription",
     image: "/careers/global-impact.png",
-    title: "Global Impact",
-    description: "Solutions deployed across 17+ industries worldwide",
     className: "md:col-span-2 md:row-span-1",
   },
   {
+    key: "culture",
+    titleKey: "collaborativeCulture",
+    descriptionKey: "collaborativeDescription",
     image: "/careers/collabrative-culture.png",
-    title: "Collaborative Culture",
-    description: "Work alongside experienced engineers and innovators",
     className: "md:col-span-2 md:row-span-1",
   },
   {
+    key: "benefits",
+    titleKey: "competitiveBenefits",
+    descriptionKey: "benefitsDescription",
     image: "/careers/competitive-benefits.png",
-    title: "Competitive Benefits",
-    description: "Comprehensive health coverage and employee perks",
     className: "md:col-span-2 md:row-span-1",
   },
 ];
 
 export function WhyJoinUs() {
+  const t = useTranslations("careers");
+
   return (
     <section className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
@@ -53,17 +62,17 @@ export function WhyJoinUs() {
           className="text-center mb-12"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            Why Join <span className="text-accent">Rax Tech</span>?
+            {t("whyJoinTitle")} <span className="text-accent">{t("whyJoinHighlight")}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Be part of a team that&apos;s shaping the future of technology
+            {t("whyJoinSubtitle")}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[180px]">
-          {benefits.map((benefit, index) => (
+          {benefitKeys.map((benefit, index) => (
             <motion.div
-              key={benefit.title}
+              key={benefit.key}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -73,7 +82,7 @@ export function WhyJoinUs() {
               {/* Background Image */}
               <Image
                 src={benefit.image}
-                alt={benefit.title}
+                alt={t(benefit.titleKey)}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -84,10 +93,10 @@ export function WhyJoinUs() {
               {/* Content */}
               <div className="absolute inset-0 p-5 flex flex-col justify-end">
                 <h3 className="text-lg md:text-xl font-semibold text-white mb-1">
-                  {benefit.title}
+                  {t(benefit.titleKey)}
                 </h3>
                 <p className="text-white/80 text-sm line-clamp-2">
-                  {benefit.description}
+                  {t(benefit.descriptionKey)}
                 </p>
               </div>
             </motion.div>

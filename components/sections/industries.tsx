@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import {
   SectionWrapper,
   SectionHeader,
@@ -9,28 +10,29 @@ import {
 import { cn } from "@/lib/utils";
 
 interface Industry {
-  name: string;
+  id: string;
+  translationKey: string;
   image: string;
 }
 
 const industries: Industry[] = [
-  { name: "Manufacturing", image: "/industries/manufacturing.png" },
-  { name: "Banking & NBFC", image: "/industries/banking.png" },
-  { name: "Power Utilities", image: "/industries/power.png" },
-  { name: "Process Industry", image: "/industries/process.png" },
-  { name: "Petroleum", image: "/industries/petroleum.png" },
-  { name: "Automotive", image: "/industries/automotive.png" },
-  { name: "Seaport", image: "/industries/seaport.png" },
-  { name: "Residential", image: "/industries/residential.png" },
-  { name: "Education", image: "/industries/education.png" },
-  { name: "Logistics", image: "/industries/logistics.png" },
-  { name: "Fashion", image: "/industries/fashion.png" },
-  { name: "Food & Beverages", image: "/industries/food.png" },
-  { name: "Healthcare", image: "/industries/healthcare.png" },
-  { name: "Retail", image: "/industries/retail.png" },
+  { id: "manufacturing", translationKey: "manufacturing", image: "/industries/manufacturing.png" },
+  { id: "banking", translationKey: "banking", image: "/industries/banking.png" },
+  { id: "power", translationKey: "powerUtilities", image: "/industries/power.png" },
+  { id: "process", translationKey: "processIndustry", image: "/industries/process.png" },
+  { id: "petroleum", translationKey: "petroleum", image: "/industries/petroleum.png" },
+  { id: "automotive", translationKey: "automotive", image: "/industries/automotive.png" },
+  { id: "seaport", translationKey: "seaport", image: "/industries/seaport.png" },
+  { id: "residential", translationKey: "residential", image: "/industries/residential.png" },
+  { id: "education", translationKey: "education", image: "/industries/education.png" },
+  { id: "logistics", translationKey: "logistics", image: "/industries/logistics.png" },
+  { id: "fashion", translationKey: "fashion", image: "/industries/fashion.png" },
+  { id: "food", translationKey: "foodBeverages", image: "/industries/food.png" },
+  { id: "healthcare", translationKey: "healthcare", image: "/industries/healthcare.png" },
+  { id: "retail", translationKey: "retail", image: "/industries/retail.png" },
 ];
 
-function IndustryCard({ industry, index }: { industry: Industry; index: number }) {
+function IndustryCard({ industry, index, name }: { industry: Industry; index: number; name: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
@@ -48,7 +50,7 @@ function IndustryCard({ industry, index }: { industry: Industry; index: number }
       <div className="absolute inset-0">
         <Image
           src={industry.image}
-          alt={industry.name}
+          alt={name}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
@@ -58,7 +60,7 @@ function IndustryCard({ industry, index }: { industry: Industry; index: number }
 
       {/* Name */}
       <span className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 text-xs sm:text-sm font-semibold text-white text-center group-hover:text-accent transition-colors z-10">
-        {industry.name}
+        {name}
       </span>
     </motion.div>
   );
@@ -68,10 +70,12 @@ function InfiniteMarquee({
   industries,
   direction = "left",
   speed = "normal",
+  getTranslatedName,
 }: {
   industries: Industry[];
   direction?: "left" | "right";
   speed?: "slow" | "normal" | "fast";
+  getTranslatedName: (key: string) => string;
 }) {
   const speedMap = {
     slow: "40s",
@@ -98,9 +102,10 @@ function InfiniteMarquee({
         {/* Duplicate industries for seamless loop */}
         {[...industries, ...industries].map((industry, index) => (
           <IndustryCard
-            key={`${industry.name}-${index}`}
+            key={`${industry.id}-${index}`}
             industry={industry}
             index={index % industries.length}
+            name={getTranslatedName(industry.translationKey)}
           />
         ))}
       </motion.div>
@@ -109,21 +114,25 @@ function InfiniteMarquee({
 }
 
 export function Industries() {
+  const t = useTranslations("industries");
+
   // Split industries into two rows
   const firstRow = industries.slice(0, 7);
   const secondRow = industries.slice(7);
 
+  const getTranslatedName = (key: string) => t(key);
+
   return (
     <SectionWrapper id="industries" className="overflow-hidden">
       <SectionHeader
-        title="Industries We Serve"
-        subtitle="Delivering innovative technology solutions across diverse sectors worldwide."
+        title={t("title")}
+        subtitle={t("subtitle")}
       />
 
       {/* Marquee Rows */}
       <div className="space-y-3 sm:space-y-4">
-        <InfiniteMarquee industries={firstRow} direction="left" speed="normal" />
-        <InfiniteMarquee industries={secondRow} direction="right" speed="slow" />
+        <InfiniteMarquee industries={firstRow} direction="left" speed="normal" getTranslatedName={getTranslatedName} />
+        <InfiniteMarquee industries={secondRow} direction="right" speed="slow" getTranslatedName={getTranslatedName} />
       </div>
 
     </SectionWrapper>

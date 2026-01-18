@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { trackServiceView, trackCTA } from "@/lib/analytics";
 import {
   CircuitBoard,
@@ -144,7 +145,17 @@ function getCapabilityDescription(capability: string): string {
 }
 
 // Mobile card for other services
-function MobileServiceCard({ service, index }: { service: typeof SERVICES[number]; index: number }) {
+function MobileServiceCard({
+  service,
+  index,
+  learnMoreText,
+  translation,
+}: {
+  service: typeof SERVICES[number];
+  index: number;
+  learnMoreText: string;
+  translation: { title: string; description: string; capabilities: string[] };
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -158,7 +169,7 @@ function MobileServiceCard({ service, index }: { service: typeof SERVICES[number
         <Image
           fill
           src={service.image}
-          alt={service.title}
+          alt={translation.title}
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
@@ -167,15 +178,15 @@ function MobileServiceCard({ service, index }: { service: typeof SERVICES[number
       {/* Content */}
       <div className="p-4 sm:p-5 -mt-8 relative z-10 flex flex-col flex-1">
         <h3 className="font-bold text-lg sm:text-xl text-foreground mb-2">
-          {service.title}
+          {translation.title}
         </h3>
         <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-          {service.description}
+          {translation.description}
         </p>
 
         {/* Capabilities - show first 3 */}
         <ul className="space-y-1.5 mb-4 flex-1">
-          {service.capabilities.slice(0, 3).map((capability) => (
+          {translation.capabilities.slice(0, 3).map((capability) => (
             <li
               key={capability}
               className="text-xs sm:text-sm text-muted-foreground flex items-start"
@@ -192,7 +203,7 @@ function MobileServiceCard({ service, index }: { service: typeof SERVICES[number
           className="bg-accent hover:bg-accent/90 text-white w-full sm:w-auto mt-auto"
         >
           <Link href={service.route}>
-            Learn More
+            {learnMoreText}
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
@@ -202,7 +213,17 @@ function MobileServiceCard({ service, index }: { service: typeof SERVICES[number
 }
 
 // Desktop expandable cards for other services
-function DesktopExpandableCards({ services }: { services: (typeof SERVICES)[number][] }) {
+function DesktopExpandableCards({
+  services,
+  learnMoreText,
+  capabilitiesText,
+  getServiceTranslation,
+}: {
+  services: (typeof SERVICES)[number][];
+  learnMoreText: string;
+  capabilitiesText: string;
+  getServiceTranslation: (svcId: string) => { title: string; description: string; capabilities: string[] };
+}) {
   const [activeId, setActiveId] = React.useState<string | null>(null);
 
   return (
@@ -211,6 +232,7 @@ function DesktopExpandableCards({ services }: { services: (typeof SERVICES)[numb
         {services.map((service) => {
           const isActive = activeId === service.id;
           const hasActive = activeId !== null;
+          const translation = getServiceTranslation(service.id);
 
           return (
             <motion.div
@@ -234,7 +256,7 @@ function DesktopExpandableCards({ services }: { services: (typeof SERVICES)[numb
                   <Image
                     fill
                     src={service.image}
-                    alt={service.title}
+                    alt={translation.title}
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card/95 via-card/30 to-transparent" />
@@ -247,7 +269,7 @@ function DesktopExpandableCards({ services }: { services: (typeof SERVICES)[numb
                       className={`font-semibold text-foreground ${hasActive ? "text-[10px] lg:text-xs" : "text-sm lg:text-base text-center"}`}
                       style={hasActive ? { writingMode: "vertical-rl", textOrientation: "mixed" } : {}}
                     >
-                      {service.title}
+                      {translation.title}
                     </h3>
                   </motion.div>
                 </motion.div>
@@ -263,7 +285,7 @@ function DesktopExpandableCards({ services }: { services: (typeof SERVICES)[numb
                     <Image
                       fill
                       src={service.image}
-                      alt={service.title}
+                      alt={translation.title}
                       className="object-cover"
                     />
                   </div>
@@ -277,10 +299,10 @@ function DesktopExpandableCards({ services }: { services: (typeof SERVICES)[numb
                       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-3 lg:mb-4">
                         <div className="flex-1 lg:pr-4 mb-3 lg:mb-0">
                           <h3 className="font-bold text-lg lg:text-xl xl:text-2xl text-foreground group-hover/expanded:text-white transition-colors">
-                            {service.title}
+                            {translation.title}
                           </h3>
                           <p className="text-muted-foreground group-hover/expanded:text-neutral-300 mt-1 lg:mt-2 text-xs lg:text-sm transition-colors">
-                            {service.description}
+                            {translation.description}
                           </p>
                         </div>
                         <Button
@@ -289,7 +311,7 @@ function DesktopExpandableCards({ services }: { services: (typeof SERVICES)[numb
                           className="bg-accent hover:bg-accent/90 text-white flex-shrink-0 w-full lg:w-auto"
                         >
                           <Link href={service.route}>
-                            Learn More
+                            {learnMoreText}
                             <ArrowRight className="ml-2 h-4 w-4" />
                           </Link>
                         </Button>
@@ -297,10 +319,10 @@ function DesktopExpandableCards({ services }: { services: (typeof SERVICES)[numb
 
                       <div className="pt-3 lg:pt-4 border-t border-border group-hover/expanded:border-neutral-700 transition-colors">
                         <h4 className="font-semibold text-foreground group-hover/expanded:text-white mb-2 lg:mb-3 text-xs lg:text-sm transition-colors">
-                          Capabilities
+                          {capabilitiesText}
                         </h4>
                         <ul className="grid grid-cols-1 xl:grid-cols-2 gap-1.5 lg:gap-2">
-                          {service.capabilities.map((capability) => (
+                          {translation.capabilities.map((capability) => (
                             <li
                               key={capability}
                               className="text-xs lg:text-sm text-muted-foreground group-hover/expanded:text-neutral-300 flex items-start transition-colors"
@@ -324,7 +346,21 @@ function DesktopExpandableCards({ services }: { services: (typeof SERVICES)[numb
 }
 
 // Other Services Section Component
-function OtherServicesSection({ services }: { services: (typeof SERVICES)[number][] }) {
+function OtherServicesSection({
+  services,
+  exploreOtherServicesText,
+  discoverServicesText,
+  learnMoreText,
+  capabilitiesText,
+  getServiceTranslation,
+}: {
+  services: (typeof SERVICES)[number][];
+  exploreOtherServicesText: string;
+  discoverServicesText: string;
+  learnMoreText: string;
+  capabilitiesText: string;
+  getServiceTranslation: (svcId: string) => { title: string; description: string; capabilities: string[] };
+}) {
   return (
     <section className="py-16 md:py-24 bg-muted/30 relative overflow-hidden">
       {/* Subtle gradient */}
@@ -339,17 +375,23 @@ function OtherServicesSection({ services }: { services: (typeof SERVICES)[number
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Explore Other <span className="text-accent">Services</span>
+            {exploreOtherServicesText.split(" ").slice(0, -1).join(" ")} <span className="text-accent">{exploreOtherServicesText.split(" ").slice(-1)}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Discover our full range of technology services
+            {discoverServicesText}
           </p>
         </motion.div>
 
         {/* Mobile: Stacked cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:hidden">
           {services.map((service, index) => (
-            <MobileServiceCard key={service.id} service={service} index={index} />
+            <MobileServiceCard
+              key={service.id}
+              service={service}
+              index={index}
+              learnMoreText={learnMoreText}
+              translation={getServiceTranslation(service.id)}
+            />
           ))}
         </div>
 
@@ -357,14 +399,24 @@ function OtherServicesSection({ services }: { services: (typeof SERVICES)[number
         <div className="hidden md:grid lg:hidden grid-cols-3 gap-4 max-w-5xl mx-auto auto-rows-fr">
           {services.map((service, index) => (
             <div key={service.id} className="h-full">
-              <MobileServiceCard service={service} index={index} />
+              <MobileServiceCard
+                service={service}
+                index={index}
+                learnMoreText={learnMoreText}
+                translation={getServiceTranslation(service.id)}
+              />
             </div>
           ))}
         </div>
 
         {/* Large screens: Expandable cards */}
         <div className="hidden lg:block max-w-7xl mx-auto">
-          <DesktopExpandableCards services={services} />
+          <DesktopExpandableCards
+            services={services}
+            learnMoreText={learnMoreText}
+            capabilitiesText={capabilitiesText}
+            getServiceTranslation={getServiceTranslation}
+          />
         </div>
       </div>
     </section>
@@ -385,7 +437,47 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
   const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
 
+  const t = useTranslations("servicePage");
+  const tCommon = useTranslations("common");
+  const tServices = useTranslations("servicesPage");
+
+  // Map service IDs to translation keys
+  const serviceTranslationKeys: Record<string, string> = {
+    "embedded-design": "embeddedDesign",
+    "software-development": "softwareDevelopment",
+    "ai": "ai",
+    "blockchain": "blockchain",
+    "oem-odm": "oemOdm",
+    "staffing": "staffing",
+  };
+
+  // Number of capabilities per service
+  const capabilitiesCount: Record<string, number> = {
+    "embedded-design": 7,
+    "software-development": 7,
+    "ai": 6,
+    "blockchain": 6,
+    "oem-odm": 6,
+    "staffing": 3,
+  };
+
+  // Get translations for a service
+  const getServiceTranslation = (svcId: string) => {
+    const key = serviceTranslationKeys[svcId] || svcId;
+    const numCapabilities = capabilitiesCount[svcId] || 6;
+    const capabilities: string[] = [];
+    for (let i = 1; i <= numCapabilities; i++) {
+      capabilities.push(tServices(`${key}.capabilities.${i}`));
+    }
+    return {
+      title: tServices(`${key}.title`),
+      description: tServices(`${key}.description`),
+      capabilities,
+    };
+  };
+
   const service = SERVICES.find((s) => s.id === serviceId);
+  const translatedService = getServiceTranslation(serviceId);
 
   // Track service view
   useEffect(() => {
@@ -469,7 +561,7 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
               transition={{ duration: 0.5 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 tracking-tight"
             >
-              {service.title}
+              {translatedService.title}
             </motion.h1>
 
             {/* Description */}
@@ -479,7 +571,7 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
             >
-              {service.description}
+              {translatedService.description}
             </motion.p>
 
             {/* CTA Buttons */}
@@ -498,7 +590,7 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
                   href="/contact"
                   onClick={() => trackCTA("Start Your Project", `services/${serviceId}`)}
                 >
-                  Start Your Project
+                  {t("startYourProject")}
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
@@ -512,7 +604,7 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
                   href="/about"
                   onClick={() => trackCTA("Learn About Us", `services/${serviceId}`)}
                 >
-                  Learn About Us
+                  {t("learnAboutUs")}
                 </Link>
               </Button>
             </motion.div>
@@ -531,7 +623,7 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
             transition={{ duration: 1.5, repeat: Infinity }}
             className="flex flex-col items-center gap-2"
           >
-            <span className="text-xs text-muted-foreground">Explore capabilities</span>
+            <span className="text-xs text-muted-foreground">{t("exploreCapabilities")}</span>
             <ChevronDown className="h-6 w-6 text-muted-foreground" />
           </motion.div>
         </motion.div>
@@ -552,16 +644,16 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
               className="text-center mb-12"
             >
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                What We <span className="text-accent">Offer</span>
+                {t("whatWeOffer").split(" ").slice(0, -1).join(" ")} <span className="text-accent">{t("whatWeOffer").split(" ").slice(-1)}</span>
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-                Comprehensive capabilities tailored to deliver exceptional results
+                {t("offerSubtitle")}
               </p>
             </motion.div>
 
             {/* Capabilities Bento Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-              {service.capabilities.map((capability, index) => {
+              {translatedService.capabilities.map((capability, index) => {
                 // Create varied sizes for bento effect
                 const isLarge = index === 0 || index === 3;
                 const description = getCapabilityDescription(capability);
@@ -640,10 +732,10 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                Our <span className="text-accent">Process</span>
+                {t("ourProcess").split(" ")[0]} <span className="text-accent">{t("ourProcess").split(" ").slice(1).join(" ")}</span>
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-                A proven methodology that delivers results consistently
+                {t("processSubtitle")}
               </p>
             </motion.div>
 
@@ -689,17 +781,17 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
 
                         {/* Step Number Badge */}
                         <div className="text-sm font-mono text-accent group-hover:text-white bg-accent/10 group-hover:bg-white/20 px-3 py-1 rounded-full inline-block mb-3 transition-colors">
-                          Step {item.step}
+                          {t("step")} {item.step}
                         </div>
 
                         {/* Title */}
                         <h3 className="text-xl font-bold mb-2 group-hover:text-white transition-colors">
-                          {item.title}
+                          {index === 0 ? t("discovery") : index === 1 ? t("strategy") : index === 2 ? t("execution") : t("delivery")}
                         </h3>
 
                         {/* Description */}
                         <p className="text-sm text-muted-foreground group-hover:text-neutral-300 leading-relaxed transition-colors">
-                          {item.description}
+                          {index === 0 ? t("discoveryDescription") : index === 1 ? t("strategyDescription") : index === 2 ? t("executionDescription") : t("deliveryDescription")}
                         </p>
                       </EvervaultBackground>
                     </div>
@@ -747,11 +839,10 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
                   transition={{ delay: 0.2 }}
                 >
                   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-                    Ready to Start Your Project?
+                    {t("readyToStart")}
                   </h2>
                   <p className="text-white/80 mb-8 max-w-xl mx-auto text-lg">
-                    Let&apos;s discuss how our {service.title.toLowerCase()} expertise can
-                    transform your ideas into reality.
+                    {t("letsDiscuss", { service: translatedService.title.toLowerCase() })}
                   </p>
 
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -765,7 +856,7 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
                         href="/contact"
                         onClick={() => trackCTA("Contact Our Team", `services/${serviceId}`, { section: "cta" })}
                       >
-                        Contact Our Team
+                        {t("contactOurTeam")}
                         <ArrowRight className="ml-2 h-5 w-5" />
                       </Link>
                     </Button>
@@ -779,7 +870,7 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
                         href="/about"
                         onClick={() => trackCTA("Learn About Us", `services/${serviceId}`, { section: "cta" })}
                       >
-                        Learn About Us
+                        {t("learnAboutUs")}
                       </Link>
                     </Button>
                   </div>
@@ -791,7 +882,14 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
       </section>
 
       {/* Other Services Section */}
-      <OtherServicesSection services={otherServices} />
+      <OtherServicesSection
+        services={otherServices}
+        exploreOtherServicesText={t("exploreOtherServices")}
+        discoverServicesText={t("discoverServices")}
+        learnMoreText={tCommon("learnMore")}
+        capabilitiesText={tCommon("capabilities")}
+        getServiceTranslation={getServiceTranslation}
+      />
     </>
   );
 }

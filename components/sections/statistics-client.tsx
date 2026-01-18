@@ -3,8 +3,19 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { SectionWrapper } from '@/components/shared/section-wrapper';
 import type { Statistic } from '@/lib/types/database';
+
+// Map database labels to translation keys
+const labelTranslationKeys: Record<string, string> = {
+  "Years of Experience": "yearsExperience",
+  "Product Designs": "productDesigns",
+  "Product Collaborations": "productCollaborations",
+  "Engineering Hours": "engineeringHours",
+  "Units Sold": "unitsSold",
+  "Customers Served": "customersServed",
+};
 
 interface Props {
   statistics: Statistic[];
@@ -13,6 +24,16 @@ interface Props {
 export function StatisticsClient({ statistics }: Props) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const t = useTranslations("statistics");
+
+  // Get translated label
+  const getTranslatedLabel = (label: string) => {
+    const key = labelTranslationKeys[label];
+    if (key) {
+      return t(key);
+    }
+    return label;
+  };
 
   return (
     <SectionWrapper variant="muted" id="statistics">
@@ -33,7 +54,7 @@ export function StatisticsClient({ statistics }: Props) {
               />
             </div>
             <p className="text-muted-foreground mt-1 sm:mt-2 text-xs sm:text-sm">
-              {stat.label}
+              {getTranslatedLabel(stat.label)}
             </p>
           </motion.div>
         ))}

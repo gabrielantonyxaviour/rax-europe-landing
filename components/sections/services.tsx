@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 import {
   SectionWrapper,
   SectionHeader,
@@ -12,8 +13,34 @@ import {
 import { EvervaultBackground } from "@/components/ui/evervault-background";
 import { SERVICES } from "@/lib/constants";
 
+// Map service IDs to translation keys
+const serviceTranslationKeys: Record<string, string> = {
+  "embedded-design": "embeddedDesign",
+  "software-development": "softwareDevelopment",
+  "ai": "ai",
+  "blockchain": "blockchain",
+  "oem-odm": "oemOdm",
+  "staffing": "staffing",
+};
+
+interface ServiceTranslation {
+  title: string;
+  description: string;
+  capabilities: string[];
+}
+
 // Mobile card component
-function MobileServiceCard({ service, index }: { service: typeof SERVICES[number]; index: number }) {
+function MobileServiceCard({
+  service,
+  index,
+  translation,
+  learnMoreText,
+}: {
+  service: typeof SERVICES[number];
+  index: number;
+  translation: ServiceTranslation;
+  learnMoreText: string;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -27,7 +54,7 @@ function MobileServiceCard({ service, index }: { service: typeof SERVICES[number
         <Image
           fill
           src={service.image}
-          alt={service.title}
+          alt={translation.title}
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
@@ -36,15 +63,15 @@ function MobileServiceCard({ service, index }: { service: typeof SERVICES[number
       {/* Content */}
       <div className="p-4 sm:p-5 -mt-8 relative z-10 flex flex-col flex-1">
         <h3 className="font-bold text-lg sm:text-xl text-foreground mb-2">
-          {service.title}
+          {translation.title}
         </h3>
         <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-          {service.description}
+          {translation.description}
         </p>
 
         {/* Capabilities - show first 3 */}
         <ul className="space-y-1.5 mb-4 flex-1">
-          {service.capabilities.slice(0, 3).map((capability) => (
+          {translation.capabilities.slice(0, 3).map((capability) => (
             <li
               key={capability}
               className="text-xs sm:text-sm text-muted-foreground flex items-start"
@@ -59,7 +86,7 @@ function MobileServiceCard({ service, index }: { service: typeof SERVICES[number
           href={service.route}
           className="flex items-center text-xs sm:text-sm font-medium text-accent group-hover:text-white transition-colors mt-auto"
         >
-          Learn More
+          {learnMoreText}
           <ArrowRight className="ml-1 sm:ml-2 h-3 sm:h-4 w-3 sm:w-4 group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
@@ -68,7 +95,15 @@ function MobileServiceCard({ service, index }: { service: typeof SERVICES[number
 }
 
 // Desktop expandable cards
-function DesktopServiceCards() {
+function DesktopServiceCards({
+  getTranslation,
+  learnMoreText,
+  capabilitiesText,
+}: {
+  getTranslation: (serviceId: string) => ServiceTranslation;
+  learnMoreText: string;
+  capabilitiesText: string;
+}) {
   const [activeId, setActiveId] = React.useState<string | null>(null);
 
   return (
@@ -77,6 +112,7 @@ function DesktopServiceCards() {
         {SERVICES.map((service) => {
           const isActive = activeId === service.id;
           const hasActive = activeId !== null;
+          const translation = getTranslation(service.id);
 
           return (
             <motion.div
@@ -100,7 +136,7 @@ function DesktopServiceCards() {
                   <Image
                     fill
                     src={service.image}
-                    alt={service.title}
+                    alt={translation.title}
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent" />
@@ -113,7 +149,7 @@ function DesktopServiceCards() {
                       className={`font-semibold text-foreground ${hasActive ? "text-[10px] lg:text-xs" : "text-sm lg:text-base text-center"}`}
                       style={hasActive ? { writingMode: "vertical-rl", textOrientation: "mixed" } : {}}
                     >
-                      {service.title}
+                      {translation.title}
                     </h3>
                   </motion.div>
                 </motion.div>
@@ -129,7 +165,7 @@ function DesktopServiceCards() {
                     <Image
                       fill
                       src={service.image}
-                      alt={service.title}
+                      alt={translation.title}
                       className="object-cover"
                     />
                   </div>
@@ -143,27 +179,27 @@ function DesktopServiceCards() {
                       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-3 lg:mb-4">
                         <div className="flex-1 lg:pr-4 mb-3 lg:mb-0">
                           <h3 className="font-bold text-lg lg:text-xl xl:text-2xl text-foreground group-hover/expanded:text-white transition-colors">
-                            {service.title}
+                            {translation.title}
                           </h3>
                           <p className="text-muted-foreground group-hover/expanded:text-neutral-300 mt-1 lg:mt-2 text-xs lg:text-sm transition-colors">
-                            {service.description}
+                            {translation.description}
                           </p>
                         </div>
                         <Link
                           href={service.route}
                           className="flex items-center text-sm lg:text-base font-medium text-accent group-hover/expanded:text-white transition-colors"
                         >
-                          Learn More
+                          {learnMoreText}
                           <ArrowRight className="ml-2 h-4 w-4 group-hover/expanded:translate-x-1 transition-transform" />
                         </Link>
                       </div>
 
                       <div className="pt-3 lg:pt-4 border-t border-border group-hover/expanded:border-neutral-700 transition-colors">
                         <h4 className="font-semibold text-foreground group-hover/expanded:text-white mb-2 lg:mb-3 text-xs lg:text-sm transition-colors">
-                          Capabilities
+                          {capabilitiesText}
                         </h4>
                         <ul className="grid grid-cols-1 xl:grid-cols-2 gap-1.5 lg:gap-2">
-                          {service.capabilities.map((capability) => (
+                          {translation.capabilities.map((capability) => (
                             <li
                               key={capability}
                               className="text-xs lg:text-sm text-muted-foreground group-hover/expanded:text-neutral-300 flex items-start transition-colors"
@@ -187,17 +223,52 @@ function DesktopServiceCards() {
 }
 
 export function Services() {
+  const t = useTranslations("services");
+  const tCommon = useTranslations("common");
+  const tServices = useTranslations("servicesPage");
+
+  // Number of capabilities per service
+  const capabilitiesCount: Record<string, number> = {
+    "embedded-design": 7,
+    "software-development": 7,
+    "ai": 6,
+    "blockchain": 6,
+    "oem-odm": 6,
+    "staffing": 3,
+  };
+
+  // Get translations for a service
+  const getTranslationForService = (serviceId: string): ServiceTranslation => {
+    const key = serviceTranslationKeys[serviceId] || serviceId;
+    const numCapabilities = capabilitiesCount[serviceId] || 6;
+    const capabilities: string[] = [];
+    for (let i = 1; i <= numCapabilities; i++) {
+      capabilities.push(tServices(`${key}.capabilities.${i}`));
+    }
+    return {
+      title: tServices(`${key}.title`),
+      description: tServices(`${key}.description`),
+      capabilities,
+    };
+  };
+
   return (
     <SectionWrapper variant="muted" id="services">
       <SectionHeader
-        title="Our Services"
-        subtitle="End-to-end technology services from concept to deployment, backed by decades of expertise."
+        title={t("title")}
+        subtitle={t("subtitle")}
       />
 
       {/* Mobile: Stacked cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:hidden">
         {SERVICES.map((service, index) => (
-          <MobileServiceCard key={service.id} service={service} index={index} />
+          <MobileServiceCard
+            key={service.id}
+            service={service}
+            index={index}
+            translation={getTranslationForService(service.id)}
+            learnMoreText={tCommon("learnMore")}
+          />
         ))}
       </div>
 
@@ -205,14 +276,23 @@ export function Services() {
       <div className="hidden md:grid lg:hidden grid-cols-3 gap-4 max-w-5xl mx-auto auto-rows-fr">
         {SERVICES.map((service, index) => (
           <div key={service.id} className="h-full">
-            <MobileServiceCard service={service} index={index} />
+            <MobileServiceCard
+              service={service}
+              index={index}
+              translation={getTranslationForService(service.id)}
+              learnMoreText={tCommon("learnMore")}
+            />
           </div>
         ))}
       </div>
 
       {/* Large screens: Expandable cards */}
       <div className="hidden lg:block">
-        <DesktopServiceCards />
+        <DesktopServiceCards
+          getTranslation={getTranslationForService}
+          learnMoreText={tCommon("learnMore")}
+          capabilitiesText={tCommon("capabilities")}
+        />
       </div>
     </SectionWrapper>
   );

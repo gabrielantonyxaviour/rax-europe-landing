@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 import {
   SectionWrapper,
   SectionHeader,
@@ -12,14 +13,33 @@ import { EvervaultBackground } from "@/components/ui/evervault-background";
 import { BUSINESS_DOMAINS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
+// Map domain IDs to translation keys
+const domainTranslationKeys: Record<string, string> = {
+  "iot": "iot",
+  "e-surveillance": "eSurveillance",
+  "software": "software",
+  "marine-technology": "marineTechnology",
+  "hse": "hse",
+  "automation": "automation",
+};
+
 function BentoCard({
   domain,
   index,
   className,
+  exploreText,
+  translations,
 }: {
   domain: (typeof BUSINESS_DOMAINS)[number];
   index: number;
   className?: string;
+  exploreText: string;
+  translations: {
+    title: string;
+    headline: string;
+    description: string;
+    offerings: string[];
+  };
 }) {
   const imageSrc = domain.image;
 
@@ -40,7 +60,7 @@ function BentoCard({
         <div className="relative h-28 sm:h-32 md:h-40 overflow-hidden flex-shrink-0">
           <Image
             src={imageSrc}
-            alt={domain.title}
+            alt={translations.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
@@ -52,22 +72,22 @@ function BentoCard({
         <EvervaultBackground containerClassName="-mt-6 sm:-mt-8 relative z-10 flex-1 flex flex-col" className="p-3 sm:p-4 md:p-6 flex flex-col flex-1">
           {/* Title */}
           <h3 className="text-sm sm:text-base md:text-xl font-semibold mb-1 sm:mb-2 group-hover:text-white transition-colors">
-            {domain.title}
+            {translations.title}
           </h3>
 
           {/* Headline */}
           <p className="text-[10px] sm:text-xs md:text-sm text-accent group-hover:text-red-300 font-medium mb-2 sm:mb-3 line-clamp-1 transition-colors">
-            {domain.headline}
+            {translations.headline}
           </p>
 
           {/* Description - hidden on mobile */}
           <p className="hidden sm:block text-xs md:text-sm text-muted-foreground group-hover:text-neutral-300 mb-3 md:mb-4 line-clamp-2 transition-colors">
-            {domain.description}
+            {translations.description}
           </p>
 
           {/* Offerings - show only on md+ */}
           <ul className="hidden md:block space-y-1.5 mb-4 flex-1">
-            {domain.offerings.slice(0, 2).map((offering) => (
+            {translations.offerings.slice(0, 2).map((offering) => (
               <li
                 key={offering}
                 className="text-xs text-muted-foreground group-hover:text-neutral-300 flex items-center transition-colors"
@@ -80,7 +100,7 @@ function BentoCard({
 
           {/* Link - pinned to bottom */}
           <div className="flex items-center text-xs sm:text-sm font-medium text-accent group-hover:text-white transition-colors mt-auto">
-            Explore
+            {exploreText}
             <ArrowRight className="ml-1 sm:ml-2 h-3 sm:h-4 w-3 sm:w-4 group-hover:translate-x-1 transition-transform" />
           </div>
         </EvervaultBackground>
@@ -92,85 +112,32 @@ function BentoCard({
   );
 }
 
-function FeaturedBentoCard({
-  domain,
-}: {
-  domain: (typeof BUSINESS_DOMAINS)[number];
-}) {
-  const imageSrc = domain.image;
-
-  return (
-    <Link href={domain.route}>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        whileHover={{ y: -5 }}
-        className="group relative overflow-hidden rounded-2xl border border-border bg-card h-full transition-all duration-300 hover:border-accent/50 hover:shadow-xl hover:shadow-accent/5"
-      >
-        {/* Image Header - taller for featured card */}
-        <div className="relative h-56 overflow-hidden">
-          <Image
-            src={imageSrc}
-            alt={domain.title}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
-        </div>
-
-        {/* Content */}
-        <div className="relative z-10 p-8 -mt-12 flex flex-col">
-          {/* Title */}
-          <h3 className="text-2xl md:text-3xl font-bold mb-3 group-hover:text-accent transition-colors">
-            {domain.title}
-          </h3>
-
-          {/* Headline */}
-          <p className="text-base text-accent font-semibold mb-4">
-            {domain.headline}
-          </p>
-
-          {/* Description */}
-          <p className="text-muted-foreground mb-6 flex-grow">
-            {domain.description}
-          </p>
-
-          {/* Offerings */}
-          <ul className="space-y-2 mb-6">
-            {domain.offerings.map((offering) => (
-              <li
-                key={offering}
-                className="text-sm text-muted-foreground flex items-center"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mr-2 flex-shrink-0" />
-                {offering}
-              </li>
-            ))}
-          </ul>
-
-          {/* Link */}
-          <div className="flex items-center text-base font-semibold text-accent">
-            Explore {domain.shortTitle}
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
-          </div>
-        </div>
-
-        {/* Bottom accent line */}
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-      </motion.div>
-    </Link>
-  );
-}
-
 export function Domains() {
+  const t = useTranslations("domains");
+  const tCommon = useTranslations("common");
+  const tProducts = useTranslations("products");
+
+  // Get translations for each domain
+  const getTranslationsForDomain = (domainId: string) => {
+    const key = domainTranslationKeys[domainId] || domainId;
+    return {
+      title: tProducts(`${key}.title`),
+      headline: tProducts(`${key}.headline`),
+      description: tProducts(`${key}.description`),
+      offerings: [
+        tProducts(`${key}.offerings.1`),
+        tProducts(`${key}.offerings.2`),
+        tProducts(`${key}.offerings.3`),
+        tProducts(`${key}.offerings.4`),
+      ],
+    };
+  };
+
   return (
     <SectionWrapper id="domains" className="overflow-hidden">
       <SectionHeader
-        title="Our Expertise"
-        subtitle="Comprehensive technology solutions across six core domains, tailored to transform your business operations."
+        title={t("title")}
+        subtitle={t("subtitle")}
       />
 
       {/* Grid Layout: 2 col mobile, 2 cols tablet, 3 cols desktop */}
@@ -180,6 +147,8 @@ export function Domains() {
             key={domain.id}
             domain={domain}
             index={index}
+            exploreText={tCommon("explore")}
+            translations={getTranslationsForDomain(domain.id)}
           />
         ))}
       </div>

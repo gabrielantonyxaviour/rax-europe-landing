@@ -1,0 +1,431 @@
+{
+  "common": {
+    "getInTouch": "Contactenos",
+    "learnMore": "Mas informacion",
+    "explore": "Explorar",
+    "viewDetails": "Ver detalles",
+    "sendMessage": "Enviar mensaje",
+    "sending": "Enviando...",
+    "scrollToExplore": "Desplace para explorar",
+    "allRightsReserved": "Todos los derechos reservados",
+    "required": "requerido",
+    "capabilities": "Capabilities"
+  },
+  "nav": {
+    "products": "Productos",
+    "services": "Servicios",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "more": "Mas",
+    "careers": "Carreras",
+    "gallery": "Galeria",
+    "careersDescription": "Unete a nuestro equipo de innovadores y construye el futuro de la tecnologia.",
+    "galleryDescription": "Explora fotos de nuestros eventos y celebraciones de la empresa."
+  },
+  "hero": {
+    "badge": "25+ anos de excelencia tecnologica",
+    "headline": "Habilitador tecnologico para",
+    "words": {
+      "iot": "Soluciones IoT",
+      "automation": "Automatizacion",
+      "surveillance": "e-Vigilancia",
+      "blockchain": "Blockchain",
+      "ai": "Sistemas de IA"
+    }
+  },
+  "about": {
+    "title": "Quienes somos",
+    "since": "Desde 2000",
+    "sinceDescription": "Soluciones tecnologicas pioneras en diversas industrias",
+    "isoCertified": "Certificado ISO",
+    "isoDescription": "Certificado ISO 9001:2015 por TUV South Asia",
+    "clients": "1.200+ Clientes",
+    "clientsDescription": "Confianza de empresas en todo el mundo"
+  },
+  "domains": {
+    "title": "Nuestra experiencia",
+    "subtitle": "Soluciones tecnologicas integrales en multiples dominios"
+  },
+  "services": {
+    "title": "Nuestros servicios",
+    "subtitle": "Servicios tecnologicos de extremo a extremo adaptados a las necesidades de su negocio",
+    "capabilities": "Capacidades"
+  },
+  "industries": {
+    "title": "Industrias que servimos",
+    "subtitle": "Entregando soluciones tecnologicas innovadoras en diversos sectores",
+    "manufacturing": "Manufactura",
+    "banking": "Banca / NBFC",
+    "powerUtilities": "Servicios de energia",
+    "processIndustry": "Industria de procesos",
+    "petroleum": "Petroleo",
+    "automotive": "Automotriz",
+    "seaport": "Puerto maritimo",
+    "residential": "Residencial",
+    "education": "Educacion",
+    "logistics": "Logistica / Almacen",
+    "fashion": "Moda",
+    "foodBeverages": "Alimentos y bebidas",
+    "healthcare": "Salud",
+    "retail": "Comercio minorista"
+  },
+  "testimonials": {
+    "title": "Lo que dicen nuestros",
+    "titleHighlight": "clientes",
+    "titleEnd": "",
+    "subtitle": "Confianza de lideres de la industria en mas de 17 sectores en todo el mundo"
+  },
+  "contactCta": {
+    "title": "Listo para transformar su negocio?",
+    "description": "Hablemos de como Rax Tech puede ayudarle a alcanzar sus objetivos tecnologicos. Nuestro equipo de expertos esta listo para proporcionar soluciones adaptadas a sus necesidades especificas."
+  },
+  "statistics": {
+    "yearsExperience": "Anos de experiencia",
+    "productDesigns": "Disenos de productos",
+    "productCollaborations": "Colaboraciones de productos",
+    "engineeringHours": "Horas de ingenieria",
+    "unitsSold": "Unidades vendidas",
+    "customersServed": "Clientes atendidos"
+  },
+  "aboutPage": {
+    "badge": "Sobre nosotros",
+    "headline": "25+ anos de",
+    "headlineHighlight": "Excelencia tecnologica",
+    "vision": "Nuestra vision",
+    "mission": "Nuestra mision",
+    "visionContent": "To become a Global Innovator by delivering highly reliable quality products, providing excellent after-sales support, and maintaining best employer values.",
+    "missionContent": "Technology Enabler who designs, develops, and manufactures innovative products and digital solutions that make the world smarter, safer, and more secure.",
+    "statsTitle": "Our Impact in Numbers",
+    "statsSubtitle": "Over two decades of consistent growth and client success stories.",
+    "journeyTitle": "Our Journey",
+    "journeySubtitle": "Key milestones that have shaped RaxTech Europe over the past {years}+ years.",
+    "timeline": {
+      "founded": {
+        "title": "Company Founded",
+        "description": "RaxTech Europe was established with a vision to become a global technology enabler."
+      },
+      "iso": {
+        "title": "ISO Certification",
+        "description": "Achieved ISO 9001 certification, establishing our commitment to quality management systems."
+      },
+      "oem": {
+        "title": "100+ OEM Designs",
+        "description": "Reached the milestone of 100+ OEM and ODM design collaborations across multiple industries."
+      },
+      "iot": {
+        "title": "IoT Solutions Launch",
+        "description": "Expanded into Internet of Things solutions, offering remote monitoring and smart device integration."
+      },
+      "units": {
+        "title": "1M+ Units Sold",
+        "description": "Celebrated the milestone of 1 million+ units sold across our product portfolio."
+      },
+      "blockchain": {
+        "title": "Blockchain & Web3",
+        "description": "Launched Blockchain and Web3 services, embracing the future of decentralized technologies."
+      }
+    }
+  },
+  "contactPage": {
+    "title": "Comencemos una",
+    "titleHighlight": "conversacion",
+    "subtitle": "Tiene un proyecto en mente? Nos encantaria saber de usted. Envienos un mensaje y creemos algo increible juntos.",
+    "officesTitle": "Nuestras oficinas en el mundo",
+    "officesSubtitle": "Con oficinas en Asia y Europa, aportamos experiencia global con comprension local a cada proyecto.",
+    "connectedTitle": "Conectados a traves de los continentes",
+    "connectedDescription": "Nuestra presencia estrategica en India, Oman y Polonia nos permite atender a clientes en multiples zonas horarias con soporte las 24 horas.",
+    "uniqueExpertise": "Cada oficina aporta experiencia regional unica mientras mantiene nuestro compromiso unificado con la calidad y la innovacion.",
+    "countries": "Paises",
+    "continents": "Continentes",
+    "coverage": "Cobertura",
+    "hq": "HQ"
+  },
+  "contactForm": {
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "email": "Correo electronico",
+    "phone": "Telefono (opcional)",
+    "company": "Empresa (opcional)",
+    "message": "Mensaje",
+    "firstNamePlaceholder": "Juan",
+    "lastNamePlaceholder": "Garcia",
+    "emailPlaceholder": "juan@empresa.es",
+    "phonePlaceholder": "912 345 678",
+    "companyPlaceholder": "Su empresa",
+    "messagePlaceholder": "Cuentenos sobre su proyecto o consulta...",
+    "successTitle": "Mensaje enviado!",
+    "successMessage": "Gracias por contactarnos. Nuestro equipo le respondera dentro de las 24 horas."
+  },
+  "careers": {
+    "openPositions": "{count} puesto(s) abierto(s)",
+    "title": "Construye el futuro",
+    "titleHighlight": "con nosotros",
+    "subtitle": "Unete a un equipo de innovadores que crean soluciones de IoT, automatizacion y vigilancia que transforman industrias en todo el mundo.",
+    "viewPositions": "Ver puestos abiertos",
+    "whyJoinTitle": "Por que unirse a",
+    "whyJoinHighlight": "Rax Tech?",
+    "whyJoinSubtitle": "Se parte de un equipo que esta dando forma al futuro de la tecnologia",
+    "innovationFirst": "Innovacion primero",
+    "innovationDescription": "Trabaja en tecnologias IoT y de automatizacion de vanguardia",
+    "growthOpportunities": "Oportunidades de crecimiento",
+    "growthDescription": "Rutas de carrera claras y aprendizaje continuo",
+    "workLifeBalance": "Equilibrio vida-trabajo",
+    "workLifeDescription": "Arreglos flexibles y cultura de apoyo",
+    "globalImpact": "Impacto global",
+    "globalDescription": "Soluciones implementadas en mas de 17 industrias en todo el mundo",
+    "collaborativeCulture": "Cultura colaborativa",
+    "collaborativeDescription": "Trabaja junto a ingenieros e innovadores experimentados",
+    "competitiveBenefits": "Beneficios competitivos",
+    "benefitsDescription": "Cobertura de salud completa y beneficios para empleados",
+    "openPosition": "Open Position",
+    "applyNow": "Apply Now"
+  },
+  "gallery": {
+    "badge": "Galeria",
+    "title": "Nuestros momentos y",
+    "titleHighlight": "recuerdos",
+    "subtitle": "Explora fotos de nuestros eventos de empresa, celebraciones y actividades de equipo.",
+    "events": {
+      "pongal2025": {
+        "title": "Pongal Celebration 2025",
+        "description": "Celebrating the harvest festival with our team"
+      },
+      "environmental2025": {
+        "title": "Environmental Training 2025",
+        "description": "GEM training and environmental awareness program"
+      },
+      "sportsDay2022": {
+        "title": "Sports Day 2022",
+        "description": "Annual sports day celebration with team activities"
+      }
+    }
+  },
+  "footer": {
+    "products": "Productos",
+    "services": "Servicios",
+    "company": "Empresa",
+    "aboutUs": "Sobre nosotros",
+    "certification": "Certificado ISO 9001:2015",
+    "address": "Direccion",
+    "phone": "Telefono",
+    "email": "Correo"
+  },
+  "products": {
+    "iot": {
+      "title": "IoT",
+      "headline": "Percibe el mundo de forma mas inteligente",
+      "description": "Dispositivos conectados inteligentes para monitoreo remoto, recopilacion de datos en tiempo real y automatizacion industrial.",
+      "offerings": {
+        "1": "Soluciones de monitoreo remoto",
+        "2": "Sensores inteligentes y conectividad",
+        "3": "Analisis de datos en tiempo real",
+        "4": "Implementaciones de IoT industrial"
+      }
+    },
+    "eSurveillance": {
+      "title": "E-Vigilancia",
+      "headline": "Asegurar. Monitorear. Proteger.",
+      "description": "Soluciones integrales de automatizacion de seguridad y vigilancia con paneles de alarma, analisis de video y control de acceso.",
+      "offerings": {
+        "1": "Paneles de automatizacion de alarmas",
+        "2": "Analisis de video",
+        "3": "Sistemas de monitoreo remoto",
+        "4": "Soluciones de control de acceso"
+      }
+    },
+    "software": {
+      "title": "Software",
+      "headline": "Soluciones de software inteligentes",
+      "description": "Plataformas de software empresarial para monitoreo, gestion y aplicaciones IoT.",
+      "offerings": {
+        "1": "Software de monitoreo central",
+        "2": "Plataforma IoT y aplicaciones moviles",
+        "3": "Gestion de control de acceso",
+        "4": "Sistemas de gestion de campus"
+      }
+    },
+    "marineTechnology": {
+      "title": "Tecnologia marina",
+      "headline": "Navega con confianza",
+      "description": "Sistemas de gestion de embarcaciones Deep Sea Master para navegacion y control maritimo.",
+      "offerings": {
+        "1": "Sistemas de control de puente",
+        "2": "Gestion de navegacion",
+        "3": "Comunicacion satelital",
+        "4": "Soluciones de datos maritimos"
+      }
+    },
+    "hse": {
+      "title": "HSE",
+      "headline": "Salud, seguridad y medio ambiente",
+      "description": "Soluciones HSE integrales para seguridad laboral, monitoreo ambiental y cumplimiento.",
+      "offerings": {
+        "1": "Monitoreo de areas de reunion",
+        "2": "Sistemas de seguimiento LTI",
+        "3": "Sensores ambientales",
+        "4": "Dispositivos de alerta de seguridad"
+      }
+    },
+    "automation": {
+      "title": "Automatizacion",
+      "headline": "Elimina tus errores de trabajo",
+      "description": "Paneles de automatizacion industrial y sistemas de control para industrias de fabricacion y procesos.",
+      "offerings": {
+        "1": "Paneles PLC",
+        "2": "Paneles VFD",
+        "3": "Paneles de proteccion",
+        "4": "Sistemas de anunciacion"
+      }
+    }
+  },
+  "servicesPage": {
+    "embeddedDesign": {
+      "title": "Diseno embebido",
+      "description": "Diseno de sistemas embebidos de extremo a extremo desde el concepto hasta la produccion.",
+      "capabilities": {
+        "1": "Diseno de hardware y layout PCB",
+        "2": "Diseno esquematico",
+        "3": "Prototipado y soporte de produccion",
+        "4": "Servicios de diseno FPGA",
+        "5": "Diseno a nivel de sistema",
+        "6": "Pruebas y validacion",
+        "7": "Gestion de obsolescencia"
+      }
+    },
+    "softwareDevelopment": {
+      "title": "Desarrollo de software",
+      "description": "Soluciones de software personalizadas para aplicaciones web, de escritorio y empresariales.",
+      "capabilities": {
+        "1": "Desarrollo de aplicaciones personalizadas",
+        "2": "Desarrollo de productos",
+        "3": "Desarrollo de software ERP",
+        "4": "Servicios de integracion",
+        "5": "Implementacion y soporte",
+        "6": "Aplicaciones Windows y web",
+        "7": "Gestion completa del ciclo de vida de aplicaciones"
+      }
+    },
+    "ai": {
+      "title": "Inteligencia artificial",
+      "description": "Soluciones impulsadas por IA para automatizacion, analisis y sistemas inteligentes.",
+      "capabilities": {
+        "1": "Integracion de aprendizaje automatico",
+        "2": "Analisis predictivo",
+        "3": "Soluciones de vision por computadora",
+        "4": "Automatizacion impulsada por IA",
+        "5": "Procesamiento de lenguaje natural",
+        "6": "Implementacion de Edge AI"
+      }
+    },
+    "blockchain": {
+      "title": "Blockchain y Web3",
+      "description": "Tecnologias descentralizadas y soluciones Web3 para aplicaciones empresariales.",
+      "capabilities": {
+        "1": "Consultoria blockchain",
+        "2": "Desarrollo de contratos inteligentes",
+        "3": "Servicios de integracion Web3",
+        "4": "Desarrollo de aplicaciones descentralizadas",
+        "5": "Soluciones de tokenizacion",
+        "6": "Auditorias de seguridad blockchain"
+      }
+    },
+    "oemOdm": {
+      "title": "OEM y ODM",
+      "description": "Fabricacion de equipos y disenos originales con mas de 100 proyectos exitosos.",
+      "capabilities": {
+        "1": "Fabricacion de equipos originales",
+        "2": "Fabricacion de diseno original",
+        "3": "Digitalizacion de productos",
+        "4": "Desarrollo de controladores electronicos",
+        "5": "Soluciones de conectividad de datos",
+        "6": "Desarrollo de productos de extremo a extremo"
+      }
+    },
+    "staffing": {
+      "title": "Soluciones de personal",
+      "description": "Adquisicion de talento tecnico y recursos basados en proyectos.",
+      "capabilities": {
+        "1": "Adquisicion de talento tecnico",
+        "2": "Personal por contrato",
+        "3": "Recursos basados en proyectos"
+      }
+    }
+  },
+  "languageSwitcher": {
+    "selectLanguage": "Seleccionar idioma",
+    "currentLanguage": "Actual: {language}"
+  },
+  "openPositionsSection": {
+    "title": "Open Positions",
+    "subtitle": "Find your next opportunity"
+  },
+  "jobDetails": {
+    "applyingFor": "Applying for",
+    "aboutTheRole": "About the Role",
+    "requirements": "Requirements",
+    "responsibilities": "Responsibilities",
+    "benefits": "Benefits",
+    "viewDetails": "View Details"
+  },
+  "emptyState": {
+    "noOpenPositions": "No Open Positions",
+    "noPositionsMessage": "We don't have any open positions at the moment. However, we're always looking for talented individuals.",
+    "sendResume": "Send your resume to",
+    "noPositionsFound": "No Positions Found",
+    "adjustFilters": "Try adjusting your filters to see more opportunities.",
+    "checkBackSoon": "Check back soon for new opportunities."
+  },
+  "jobFilters": {
+    "all": "All",
+    "engineering": "Engineering",
+    "marketing": "Marketing",
+    "sales": "Sales"
+  },
+  "enquiryForm": {
+    "title": "Consultar sobre este producto",
+    "defaultMessage": "Estoy interesado en {productName} (Modelo: {model}). Por favor, proporcione más información sobre precios, disponibilidad y especificaciones técnicas.",
+    "sendEnquiry": "Enviar consulta",
+    "sending": "Enviando...",
+    "successTitle": "¡Consulta enviada!",
+    "successMessage": "Gracias por su interés en {productName}. Nuestro equipo se pondrá en contacto con usted dentro de 24 horas."
+  },
+  "productItems": {},
+  "productPage": {
+    "exploreProducts": "Explorar productos",
+    "productsTitle": "Productos",
+    "productsSubtitle": "Explore nuestra gama completa de productos",
+    "viewCatalog": "Ver catálogo",
+    "enquire": "Consultar",
+    "customSolutions": "Soluciones personalizadas",
+    "customSolutionsSubtitle": "Soluciones IoT que hemos creado para nuestros clientes de diferentes industrias",
+    "keyOfferings": "Ofertas principales",
+    "keyOfferingsSubtitle": "Lo que entregamos en este ámbito",
+    "interestedIn": "¿Interesado en productos de {category}?",
+    "contactForPricing": "Contacte a nuestro equipo para precios, especificaciones técnicas o para discutir requisitos personalizados para su proyecto.",
+    "requestQuote": "Solicitar presupuesto",
+    "exploreOtherProducts": "Explorar otros productos"
+  },
+  "servicePage": {
+    "exploreCapabilities": "Explorar capacidades",
+    "whatWeOffer": "Lo que ofrecemos",
+    "offerSubtitle": "Capacidades integrales adaptadas para ofrecer resultados excepcionales",
+    "ourProcess": "Nuestro proceso",
+    "processSubtitle": "Una metodología probada que ofrece resultados de manera consistente",
+    "step": "Paso",
+    "discovery": "Descubrimiento",
+    "discoveryDescription": "Análisis profundo de sus requisitos, objetivos y restricciones técnicas",
+    "strategy": "Estrategia",
+    "strategyDescription": "Hoja de ruta detallada con hitos, entregables y plazos",
+    "execution": "Ejecución",
+    "executionDescription": "Desarrollo ágil con actualizaciones regulares y puntos de control de calidad",
+    "delivery": "Entrega",
+    "deliveryDescription": "Pruebas exhaustivas, implementación y soporte continuo",
+    "readyToStart": "¿Listo para comenzar su proyecto?",
+    "letsDiscuss": "Hablemos de cómo nuestra experiencia en {service} puede transformar sus ideas en realidad.",
+    "contactOurTeam": "Contactar a nuestro equipo",
+    "learnAboutUs": "Conozca más sobre nosotros",
+    "exploreOtherServices": "Explorar otros servicios",
+    "discoverServices": "Descubra nuestra gama completa de servicios tecnológicos",
+    "startYourProject": "Iniciar su proyecto"
+  }
+}

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { trackEvent, trackCTA } from "@/lib/analytics";
 import {
   ArrowRight,
@@ -104,14 +105,25 @@ function ProductCard({
   index,
   isSoftware = false,
   onEnquire,
+  viewCatalogText,
+  enquireText,
+  productTranslation,
 }: {
   product: ProductItem;
   index: number;
   isSoftware?: boolean;
   onEnquire: (product: ProductItem) => void;
+  viewCatalogText: string;
+  enquireText: string;
+  productTranslation?: { name: string; shortDescription: string; longDescription: string };
 }) {
   const hasCatalog = !!product.catalog_url;
   const hasLongDescription = !!product.long_description;
+
+  // Use translated content if available, otherwise fallback to original
+  const productName = productTranslation?.name || product.name;
+  const productShortDescription = productTranslation?.shortDescription || product.short_description;
+  const productLongDescription = productTranslation?.longDescription || product.long_description;
 
   return (
     <motion.div
@@ -140,7 +152,7 @@ function ProductCard({
           >
             <Image
               src={product.image}
-              alt={product.name}
+              alt={productName}
               fill
               className="object-contain"
             />
@@ -157,12 +169,12 @@ function ProductCard({
 
           {/* Name */}
           <h3 className="text-lg font-semibold mt-3 mb-2 group-hover:text-white transition-colors line-clamp-1 flex-shrink-0">
-            {product.name}
+            {productName}
           </h3>
 
           {/* Short Description - hidden on hover when long description exists */}
           <p className={`text-sm text-muted-foreground group-hover:text-neutral-300 transition-all line-clamp-2 flex-shrink-0 ${hasLongDescription ? 'sm:group-hover:hidden' : ''}`}>
-            {product.short_description}
+            {productShortDescription}
           </p>
 
           {/* Long Description - revealed on hover, fills available space and scrolls */}
@@ -170,7 +182,7 @@ function ProductCard({
             <div className="hidden sm:group-hover:flex flex-col transition-all duration-500 ease-out flex-1 min-h-0 overflow-hidden mt-3">
               <div className="border-t border-border/50 pt-3 flex-1 overflow-y-auto [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:bg-white/10 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/40 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-white/60">
                 <p className="text-sm text-muted-foreground group-hover:text-neutral-400 leading-relaxed pr-2">
-                  {product.long_description}
+                  {productLongDescription}
                 </p>
               </div>
             </div>
@@ -192,7 +204,7 @@ function ProductCard({
                 }}
               >
                 <FileText className="h-3.5 w-3.5 mr-1.5" />
-                <span className="hidden xs:inline">View </span>Catalog
+                {viewCatalogText}
               </Button>
             )}
             <Button
@@ -205,7 +217,7 @@ function ProductCard({
               }}
             >
               <MessageSquare className="h-3.5 w-3.5 mr-1.5" />
-              Enquire
+              {enquireText}
             </Button>
           </div>
         </EvervaultBackground>
@@ -216,6 +228,54 @@ function ProductCard({
 
 export function ProductCatalogPage({ category, products, customerUsecases = [], allCategories }: ProductCatalogPageProps) {
   const otherCategories = allCategories.filter((c) => c.id !== category.id);
+  const t = useTranslations("productPage");
+  const tCommon = useTranslations("common");
+  const tProducts = useTranslations("products");
+  const tProductItems = useTranslations("productItems");
+
+  // Get product translation if available
+  const getProductTranslation = (model: string) => {
+    if (tProductItems.has(`${model}.name`)) {
+      return {
+        name: tProductItems(`${model}.name`),
+        shortDescription: tProductItems.has(`${model}.shortDescription`)
+          ? tProductItems(`${model}.shortDescription`)
+          : "",
+        longDescription: tProductItems.has(`${model}.longDescription`)
+          ? tProductItems(`${model}.longDescription`)
+          : "",
+      };
+    }
+    return undefined;
+  };
+
+  // Map category IDs to translation keys
+  const categoryTranslationKeys: Record<string, string> = {
+    "iot": "iot",
+    "e-surveillance": "eSurveillance",
+    "software": "software",
+    "marine-technology": "marineTechnology",
+    "hse": "hse",
+    "automation": "automation",
+  };
+
+  // Get translated category data
+  const getTranslatedCategory = (catId: string) => {
+    const key = categoryTranslationKeys[catId] || catId;
+    return {
+      title: tProducts(`${key}.title`),
+      headline: tProducts(`${key}.headline`),
+      description: tProducts(`${key}.description`),
+      offerings: [
+        tProducts(`${key}.offerings.1`),
+        tProducts(`${key}.offerings.2`),
+        tProducts(`${key}.offerings.3`),
+        tProducts(`${key}.offerings.4`),
+      ],
+    };
+  };
+
+  const translatedCategory = getTranslatedCategory(category.id);
 
   // State for enquiry dialog
   const [enquiryProduct, setEnquiryProduct] = useState<ProductItem | null>(null);
@@ -297,7 +357,7 @@ export function ProductCatalogPage({ category, products, customerUsecases = [], 
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 tracking-tight"
             >
-              {category.title}
+              {translatedCategory.title}
             </motion.h1>
 
             {/* Headline */}
@@ -307,7 +367,7 @@ export function ProductCatalogPage({ category, products, customerUsecases = [], 
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-accent font-semibold mb-4 sm:mb-6"
             >
-              {category.headline}
+              {translatedCategory.headline}
             </motion.p>
 
             {/* Description */}
@@ -317,7 +377,7 @@ export function ProductCatalogPage({ category, products, customerUsecases = [], 
               transition={{ duration: 0.5, delay: 0.3 }}
               className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
             >
-              {category.description}
+              {translatedCategory.description}
             </motion.p>
           </div>
         </div>
@@ -334,7 +394,7 @@ export function ProductCatalogPage({ category, products, customerUsecases = [], 
             transition={{ duration: 1.5, repeat: Infinity }}
             className="flex flex-col items-center gap-2"
           >
-            <span className="text-xs text-muted-foreground">Explore products</span>
+            <span className="text-xs text-muted-foreground">{t("exploreProducts")}</span>
             <ChevronDown className="h-6 w-6 text-muted-foreground" />
           </motion.div>
         </motion.div>
@@ -352,11 +412,11 @@ export function ProductCatalogPage({ category, products, customerUsecases = [], 
             <div className="flex items-center gap-3 mb-2">
               <Package className="h-6 w-6 text-accent" />
               <h2 className="text-2xl md:text-3xl font-bold">
-                Products
+                {t("productsTitle")}
               </h2>
             </div>
             <p className="text-muted-foreground">
-              Explore our complete range of products
+              {t("productsSubtitle")}
             </p>
           </motion.div>
 
@@ -368,6 +428,9 @@ export function ProductCatalogPage({ category, products, customerUsecases = [], 
                 index={index}
                 isSoftware={category.id === "software"}
                 onEnquire={handleEnquire}
+                viewCatalogText={t("viewCatalog")}
+                enquireText={t("enquire")}
+                productTranslation={getProductTranslation(product.model)}
               />
             ))}
           </div>
@@ -387,11 +450,11 @@ export function ProductCatalogPage({ category, products, customerUsecases = [], 
               <div className="flex items-center gap-3 mb-2">
                 <Lightbulb className="h-6 w-6 text-accent" />
                 <h2 className="text-2xl md:text-3xl font-bold">
-                  Custom Solutions
+                  {t("customSolutions")}
                 </h2>
               </div>
               <p className="text-muted-foreground">
-                IoT solutions we&apos;ve built for our customers across industries
+                {t("customSolutionsSubtitle")}
               </p>
             </motion.div>
 
@@ -402,6 +465,9 @@ export function ProductCatalogPage({ category, products, customerUsecases = [], 
                   product={product}
                   index={index}
                   onEnquire={handleEnquire}
+                  viewCatalogText={t("viewCatalog")}
+                  enquireText={t("enquire")}
+                  productTranslation={getProductTranslation(product.model)}
                 />
               ))}
             </div>
@@ -420,15 +486,15 @@ export function ProductCatalogPage({ category, products, customerUsecases = [], 
               className="text-center mb-8 sm:mb-12"
             >
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3">
-                Key Offerings
+                {t("keyOfferings")}
               </h2>
               <p className="text-muted-foreground text-sm sm:text-base">
-                What we deliver in this domain
+                {t("keyOfferingsSubtitle")}
               </p>
             </motion.div>
 
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-              {category.offerings.map((offering, index) => {
+              {translatedCategory.offerings.map((offering, index) => {
                 const OfferingIcon = getOfferingIcon(offering);
                 return (
                   <motion.div
@@ -477,11 +543,10 @@ export function ProductCatalogPage({ category, products, customerUsecases = [], 
             </div>
             <div className="relative z-10">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">
-                Interested in {category.title} Products?
+                {t("interestedIn", { category: translatedCategory.title })}
               </h2>
               <p className="text-white/80 mb-6 sm:mb-8 max-w-xl mx-auto text-sm sm:text-base">
-                Contact our team for pricing, technical specifications, or to discuss
-                custom requirements for your project.
+                {t("contactForPricing")}
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Button asChild size="lg" variant="secondary" className="h-10 sm:h-11 text-sm sm:text-base">
@@ -489,7 +554,7 @@ export function ProductCatalogPage({ category, products, customerUsecases = [], 
                     href="/contact"
                     onClick={() => trackCTA("Request Quote", `products/${category.id}`)}
                   >
-                    Request Quote
+                    {t("requestQuote")}
                     <ArrowRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5" />
                   </Link>
                 </Button>
@@ -503,7 +568,7 @@ export function ProductCatalogPage({ category, products, customerUsecases = [], 
                     href="/services/oem-odm"
                     onClick={() => trackCTA("Custom Solutions", `products/${category.id}`)}
                   >
-                    Custom Solutions
+                    {t("customSolutions")}
                   </Link>
                 </Button>
               </div>
@@ -516,11 +581,12 @@ export function ProductCatalogPage({ category, products, customerUsecases = [], 
       <section className="py-10 sm:py-12 md:py-16 bg-muted/50">
         <div className="container mx-auto px-4">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 text-center">
-            Explore Other Products
+            {t("exploreOtherProducts")}
           </h2>
 
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6">
             {otherCategories.map((c, index) => {
+              const translatedC = getTranslatedCategory(c.id);
               return (
                 <Link key={c.id} href={c.route}>
                   <motion.div
@@ -535,7 +601,7 @@ export function ProductCatalogPage({ category, products, customerUsecases = [], 
                     <div className="relative h-28 sm:h-32 md:h-40 overflow-hidden bg-gradient-to-br from-muted/50 to-muted">
                       <Image
                         src={c.image}
-                        alt={c.title}
+                        alt={translatedC.title}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                       />
@@ -547,12 +613,12 @@ export function ProductCatalogPage({ category, products, customerUsecases = [], 
                     <EvervaultBackground containerClassName="-mt-6 sm:-mt-8 relative z-10" className="p-3 sm:p-4 md:p-6">
                       {/* Title */}
                       <h3 className="text-sm sm:text-base md:text-xl font-semibold mb-2 sm:mb-3 group-hover:text-white transition-colors">
-                        {c.title}
+                        {translatedC.title}
                       </h3>
 
                       {/* Link */}
                       <div className="flex items-center text-xs sm:text-sm font-medium text-accent group-hover:text-white transition-colors">
-                        Explore
+                        {tCommon("explore")}
                         <ArrowRight className="ml-1 sm:ml-2 h-3 sm:h-4 w-3 sm:w-4 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </EvervaultBackground>
@@ -568,20 +634,23 @@ export function ProductCatalogPage({ category, products, customerUsecases = [], 
       </section>
 
       {/* Product Enquiry Dialog */}
-      {enquiryProduct && (
-        <ProductEnquiryDialog
-          product={{
-            model: enquiryProduct.model,
-            name: enquiryProduct.name,
-            image: enquiryProduct.image,
-            category: category.title,
-            short_description: enquiryProduct.short_description || undefined,
-            long_description: enquiryProduct.long_description || undefined,
-          }}
-          open={enquiryDialogOpen}
-          onOpenChange={setEnquiryDialogOpen}
-        />
-      )}
+      {enquiryProduct && (() => {
+        const enquiryTranslation = getProductTranslation(enquiryProduct.model);
+        return (
+          <ProductEnquiryDialog
+            product={{
+              model: enquiryProduct.model,
+              name: enquiryTranslation?.name || enquiryProduct.name,
+              image: enquiryProduct.image,
+              category: translatedCategory.title,
+              short_description: enquiryTranslation?.shortDescription || enquiryProduct.short_description || undefined,
+              long_description: enquiryTranslation?.longDescription || enquiryProduct.long_description || undefined,
+            }}
+            open={enquiryDialogOpen}
+            onOpenChange={setEnquiryDialogOpen}
+          />
+        );
+      })()}
     </>
   );
 }

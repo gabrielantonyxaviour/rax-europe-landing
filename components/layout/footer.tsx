@@ -11,8 +11,9 @@ import {
   Phone,
   MapPin,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-import { COMPANY, SITE_CONTACT, SITE_OFFICE, SOCIAL_LINKS, FOOTER_LINKS } from "@/lib/constants";
+import { SITE_CONTACT, SITE_OFFICE, SOCIAL_LINKS, FOOTER_LINKS } from "@/lib/constants";
 import { Separator } from "@/components/ui/separator";
 
 // Custom X (formerly Twitter) icon
@@ -34,8 +35,41 @@ const socialIcons = {
   X: XIcon,
 };
 
+// Map footer link labels to translation keys
+const companyLinkTranslations: Record<string, string> = {
+  "About Us": "aboutUs",
+  "Careers": "careers",
+  "Gallery": "gallery",
+  "Contact": "contact",
+};
+
+// Map product IDs to translation keys
+const productTranslationKeys: Record<string, string> = {
+  "iot": "iot",
+  "e-surveillance": "eSurveillance",
+  "software": "software",
+  "marine-technology": "marineTechnology",
+  "hse": "hse",
+  "automation": "automation",
+};
+
+// Map service IDs to translation keys
+const serviceTranslationKeys: Record<string, string> = {
+  "embedded-design": "embeddedDesign",
+  "software-development": "softwareDevelopment",
+  "ai": "ai",
+  "blockchain": "blockchain",
+  "oem-odm": "oemOdm",
+  "staffing": "staffing",
+};
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const t = useTranslations("footer");
+  const tCommon = useTranslations("common");
+  const tCompany = useTranslations("company");
+  const tProducts = useTranslations("products");
+  const tServices = useTranslations("servicesPage");
 
   return (
     <footer className="bg-background text-foreground border-t border-border">
@@ -45,15 +79,15 @@ export function Footer() {
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
             <Link href="/" className="inline-block mb-3 sm:mb-4">
               <Image
-                src="/images/logo.png"
-                alt="Rax Tech"
+                src="/offices/rax-europe-logo.png"
+                alt="Rax Tech Europe"
                 width={48}
                 height={48}
                 className="h-10 sm:h-12 w-auto"
               />
             </Link>
             <p className="text-muted-foreground mb-4 sm:mb-6 max-w-sm text-xs sm:text-sm">
-              {COMPANY.description}
+              {tCompany("description")}
             </p>
 
             {/* Contact Info */}
@@ -122,52 +156,63 @@ export function Footer() {
 
           {/* Products */}
           <div>
-            <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base lg:text-lg">Products</h3>
+            <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base lg:text-lg">{t("products")}</h3>
             <ul className="space-y-1.5 sm:space-y-2">
-              {FOOTER_LINKS.products.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-xs sm:text-sm text-muted-foreground hover:text-accent transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {FOOTER_LINKS.products.map((link) => {
+                const productId = link.href.replace("/products/", "");
+                const translationKey = productTranslationKeys[productId] || productId;
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-xs sm:text-sm text-muted-foreground hover:text-accent transition-colors"
+                    >
+                      {tProducts(`${translationKey}.title`)}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base lg:text-lg">Services</h3>
+            <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base lg:text-lg">{t("services")}</h3>
             <ul className="space-y-1.5 sm:space-y-2">
-              {FOOTER_LINKS.services.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-xs sm:text-sm text-muted-foreground hover:text-accent transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {FOOTER_LINKS.services.map((link) => {
+                const serviceId = link.href.replace("/services/", "");
+                const translationKey = serviceTranslationKeys[serviceId] || serviceId;
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-xs sm:text-sm text-muted-foreground hover:text-accent transition-colors"
+                    >
+                      {tServices(`${translationKey}.title`)}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
           {/* Company */}
           <div>
-            <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base lg:text-lg">Company</h3>
+            <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base lg:text-lg">{t("company")}</h3>
             <ul className="space-y-1.5 sm:space-y-2">
-              {FOOTER_LINKS.company.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-xs sm:text-sm text-muted-foreground hover:text-accent transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {FOOTER_LINKS.company.map((link) => {
+                const translationKey = companyLinkTranslations[link.label] || link.label.toLowerCase();
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-xs sm:text-sm text-muted-foreground hover:text-accent transition-colors"
+                    >
+                      {t(translationKey)}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
@@ -177,10 +222,10 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
           <p className="text-xs sm:text-sm text-muted-foreground text-center md:text-left">
-            &copy; {currentYear} {SITE_OFFICE.name}. All Rights Reserved.
+            &copy; {currentYear} {SITE_OFFICE.name}. {tCommon("allRightsReserved")}.
           </p>
           <div className="flex items-center space-x-2 text-xs sm:text-sm text-muted-foreground">
-            <span>{COMPANY.certification}</span>
+            <span>{t("certification")}</span>
           </div>
         </div>
       </div>

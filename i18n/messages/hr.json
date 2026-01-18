@@ -1,0 +1,431 @@
+{
+  "common": {
+    "getInTouch": "Get in Touch",
+    "learnMore": "Learn More",
+    "explore": "Explore",
+    "viewDetails": "View Details",
+    "sendMessage": "Send Message",
+    "sending": "Sending...",
+    "scrollToExplore": "Scroll to explore",
+    "allRightsReserved": "All Rights Reserved",
+    "required": "required",
+    "capabilities": "Capabilities"
+  },
+  "nav": {
+    "products": "Products",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "more": "More",
+    "careers": "Careers",
+    "gallery": "Gallery",
+    "careersDescription": "Join our team of innovators and build the future of technology.",
+    "galleryDescription": "Explore photos from our company events and celebrations."
+  },
+  "hero": {
+    "badge": "25+ Years of Technology Excellence",
+    "headline": "Technology Enabler for",
+    "words": {
+      "iot": "IoT Solutions",
+      "automation": "Automation",
+      "surveillance": "e-Surveillance",
+      "blockchain": "Blockchain",
+      "ai": "AI Systems"
+    }
+  },
+  "about": {
+    "title": "Who We Are",
+    "since": "Since 2000",
+    "sinceDescription": "Pioneering technology solutions across industries",
+    "isoCertified": "ISO Certified",
+    "isoDescription": "ISO 9001:2015 certified by TUV South Asia",
+    "clients": "1,200+ Clients",
+    "clientsDescription": "Trusted by enterprises worldwide"
+  },
+  "domains": {
+    "title": "Our Expertise",
+    "subtitle": "Comprehensive technology solutions across multiple domains"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "End-to-end technology services tailored to your business needs",
+    "capabilities": "Capabilities"
+  },
+  "industries": {
+    "title": "Industries We Serve",
+    "subtitle": "Delivering innovative technology solutions across diverse sectors",
+    "manufacturing": "Manufacturing",
+    "banking": "Banking / NBFC",
+    "powerUtilities": "Power Utilities",
+    "processIndustry": "Process Industry",
+    "petroleum": "Petroleum",
+    "automotive": "Automotive",
+    "seaport": "Seaport",
+    "residential": "Residential",
+    "education": "Education",
+    "logistics": "Logistics / Warehouse",
+    "fashion": "Fashion",
+    "foodBeverages": "Food & Beverages",
+    "healthcare": "Healthcare",
+    "retail": "Retail"
+  },
+  "testimonials": {
+    "title": "What Our",
+    "titleHighlight": "Clients",
+    "titleEnd": "Say",
+    "subtitle": "Trusted by industry leaders across 17+ sectors worldwide"
+  },
+  "contactCta": {
+    "title": "Ready to Transform Your Business?",
+    "description": "Let's discuss how Rax Tech can help you achieve your technology goals. Our team of experts is ready to provide tailored solutions for your specific needs."
+  },
+  "statistics": {
+    "yearsExperience": "Years of Experience",
+    "productDesigns": "Product Designs",
+    "productCollaborations": "Product Collaborations",
+    "engineeringHours": "Engineering Hours",
+    "unitsSold": "Units Sold",
+    "customersServed": "Customers Served"
+  },
+  "aboutPage": {
+    "badge": "About Us",
+    "headline": "25+ Years of",
+    "headlineHighlight": "Technology Excellence",
+    "vision": "Our Vision",
+    "mission": "Our Mission",
+    "visionContent": "To become a Global Innovator by delivering highly reliable quality products, providing excellent after-sales support, and maintaining best employer values.",
+    "missionContent": "Technology Enabler who designs, develops, and manufactures innovative products and digital solutions that make the world smarter, safer, and more secure.",
+    "statsTitle": "Our Impact in Numbers",
+    "statsSubtitle": "Over two decades of consistent growth and client success stories.",
+    "journeyTitle": "Our Journey",
+    "journeySubtitle": "Key milestones that have shaped RaxTech Europe over the past {years}+ years.",
+    "timeline": {
+      "founded": {
+        "title": "Company Founded",
+        "description": "RaxTech Europe was established with a vision to become a global technology enabler."
+      },
+      "iso": {
+        "title": "ISO Certification",
+        "description": "Achieved ISO 9001 certification, establishing our commitment to quality management systems."
+      },
+      "oem": {
+        "title": "100+ OEM Designs",
+        "description": "Reached the milestone of 100+ OEM and ODM design collaborations across multiple industries."
+      },
+      "iot": {
+        "title": "IoT Solutions Launch",
+        "description": "Expanded into Internet of Things solutions, offering remote monitoring and smart device integration."
+      },
+      "units": {
+        "title": "1M+ Units Sold",
+        "description": "Celebrated the milestone of 1 million+ units sold across our product portfolio."
+      },
+      "blockchain": {
+        "title": "Blockchain & Web3",
+        "description": "Launched Blockchain and Web3 services, embracing the future of decentralized technologies."
+      }
+    }
+  },
+  "contactPage": {
+    "title": "Let's start a",
+    "titleHighlight": "Conversation",
+    "subtitle": "Have a project in mind? We'd love to hear from you. Send us a message and let's create something amazing together.",
+    "officesTitle": "Our Worldwide Offices",
+    "officesSubtitle": "With offices spanning across Asia and Europe, we bring global expertise with local understanding to every project.",
+    "connectedTitle": "Connected Across Continents",
+    "connectedDescription": "Our strategic presence in India, Oman, and Poland enables us to serve clients across multiple time zones with round-the-clock support.",
+    "uniqueExpertise": "Each office brings unique regional expertise while maintaining our unified commitment to quality and innovation.",
+    "countries": "Countries",
+    "continents": "Continents",
+    "coverage": "Coverage",
+    "hq": "HQ"
+  },
+  "contactForm": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "company": "Company (optional)",
+    "message": "Message",
+    "firstNamePlaceholder": "John",
+    "lastNamePlaceholder": "Doe",
+    "emailPlaceholder": "john@company.com",
+    "phonePlaceholder": "98765 43210",
+    "companyPlaceholder": "Your Company",
+    "messagePlaceholder": "Tell us about your project or inquiry...",
+    "successTitle": "Message Sent!",
+    "successMessage": "Thank you for reaching out. Our team will get back to you within 24 hours."
+  },
+  "careers": {
+    "openPositions": "{count} Open Position(s)",
+    "title": "Build the Future",
+    "titleHighlight": "with Us",
+    "subtitle": "Join a team of innovators creating IoT, automation, and surveillance solutions that transform industries worldwide.",
+    "viewPositions": "View Open Positions",
+    "whyJoinTitle": "Why Join",
+    "whyJoinHighlight": "Rax Tech?",
+    "whyJoinSubtitle": "Be part of a team that's shaping the future of technology",
+    "innovationFirst": "Innovation First",
+    "innovationDescription": "Work on cutting-edge IoT and automation technologies",
+    "growthOpportunities": "Growth Opportunities",
+    "growthDescription": "Clear career paths and continuous learning",
+    "workLifeBalance": "Work-Life Balance",
+    "workLifeDescription": "Flexible arrangements and supportive culture",
+    "globalImpact": "Global Impact",
+    "globalDescription": "Solutions deployed across 17+ industries worldwide",
+    "collaborativeCulture": "Collaborative Culture",
+    "collaborativeDescription": "Work alongside experienced engineers and innovators",
+    "competitiveBenefits": "Competitive Benefits",
+    "benefitsDescription": "Comprehensive health coverage and employee perks",
+    "openPosition": "Open Position",
+    "applyNow": "Apply Now"
+  },
+  "gallery": {
+    "badge": "Gallery",
+    "title": "Our Moments &",
+    "titleHighlight": "Memories",
+    "subtitle": "Explore photos from our company events, celebrations, and team activities.",
+    "events": {
+      "pongal2025": {
+        "title": "Pongal Celebration 2025",
+        "description": "Celebrating the harvest festival with our team"
+      },
+      "environmental2025": {
+        "title": "Environmental Training 2025",
+        "description": "GEM training and environmental awareness program"
+      },
+      "sportsDay2022": {
+        "title": "Sports Day 2022",
+        "description": "Annual sports day celebration with team activities"
+      }
+    }
+  },
+  "footer": {
+    "products": "Products",
+    "services": "Services",
+    "company": "Company",
+    "aboutUs": "About Us",
+    "certification": "ISO 9001:2015 Certified",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email"
+  },
+  "products": {
+    "iot": {
+      "title": "IoT",
+      "headline": "Sense the World Smarter",
+      "description": "Smart connected devices for remote monitoring, real-time data collection, and industrial automation.",
+      "offerings": {
+        "1": "Remote monitoring solutions",
+        "2": "Smart sensors & connectivity",
+        "3": "Real-time data analytics",
+        "4": "Industrial IoT implementations"
+      }
+    },
+    "eSurveillance": {
+      "title": "E-Surveillance",
+      "headline": "Secure. Monitor. Protect.",
+      "description": "Comprehensive security automation and surveillance solutions with alarm panels, video analytics, and access control.",
+      "offerings": {
+        "1": "Alarm automation panels",
+        "2": "Video analytics",
+        "3": "Remote monitoring systems",
+        "4": "Access control solutions"
+      }
+    },
+    "software": {
+      "title": "Software",
+      "headline": "Intelligent Software Solutions",
+      "description": "Enterprise software platforms for monitoring, management, and IoT applications.",
+      "offerings": {
+        "1": "Central monitoring software",
+        "2": "IoT platform & mobile apps",
+        "3": "Access control management",
+        "4": "Campus management systems"
+      }
+    },
+    "marineTechnology": {
+      "title": "Marine Technology",
+      "headline": "Navigate with Confidence",
+      "description": "Deep Sea Master boat management systems for maritime navigation and control.",
+      "offerings": {
+        "1": "Bridge control systems",
+        "2": "Navigation management",
+        "3": "Satellite communication",
+        "4": "Maritime data solutions"
+      }
+    },
+    "hse": {
+      "title": "HSE",
+      "headline": "Health, Safety & Environment",
+      "description": "Comprehensive HSE solutions for workplace safety, environmental monitoring, and compliance.",
+      "offerings": {
+        "1": "Assembly area monitoring",
+        "2": "LTI tracking systems",
+        "3": "Environmental sensors",
+        "4": "Safety alert devices"
+      }
+    },
+    "automation": {
+      "title": "Automation",
+      "headline": "Nullify Your Workability Errors",
+      "description": "Industrial automation panels and control systems for manufacturing and process industries.",
+      "offerings": {
+        "1": "PLC Panels",
+        "2": "VFD Panels",
+        "3": "Protection panels",
+        "4": "Annunciator systems"
+      }
+    }
+  },
+  "servicesPage": {
+    "embeddedDesign": {
+      "title": "Embedded Design",
+      "description": "End-to-end embedded systems design from concept to production.",
+      "capabilities": {
+        "1": "Hardware Design & PCB Layout",
+        "2": "Schematic Design",
+        "3": "Prototyping & Production Support",
+        "4": "FPGA Design Services",
+        "5": "System-level Design",
+        "6": "Testing & Validation",
+        "7": "Obsolescence Management"
+      }
+    },
+    "softwareDevelopment": {
+      "title": "Software Development",
+      "description": "Custom software solutions for web, desktop, and enterprise applications.",
+      "capabilities": {
+        "1": "Custom Application Development",
+        "2": "Product Development",
+        "3": "ERP Software Development",
+        "4": "Integration Services",
+        "5": "Implementation & Support",
+        "6": "Windows & Web Applications",
+        "7": "Full Application Lifecycle Management"
+      }
+    },
+    "ai": {
+      "title": "Artificial Intelligence",
+      "description": "AI-powered solutions for automation, analytics, and intelligent systems.",
+      "capabilities": {
+        "1": "Machine Learning Integration",
+        "2": "Predictive Analytics",
+        "3": "Computer Vision Solutions",
+        "4": "AI-powered Automation",
+        "5": "Natural Language Processing",
+        "6": "Edge AI Implementation"
+      }
+    },
+    "blockchain": {
+      "title": "Blockchain & Web3",
+      "description": "Decentralized technologies and Web3 solutions for enterprise applications.",
+      "capabilities": {
+        "1": "Blockchain Consulting",
+        "2": "Smart Contract Development",
+        "3": "Web3 Integration Services",
+        "4": "Decentralized Application Development",
+        "5": "Tokenization Solutions",
+        "6": "Blockchain Security Audits"
+      }
+    },
+    "oemOdm": {
+      "title": "OEM & ODM",
+      "description": "Original equipment and design manufacturing with 100+ successful projects.",
+      "capabilities": {
+        "1": "Original Equipment Manufacturing",
+        "2": "Original Design Manufacturing",
+        "3": "Product Digitization",
+        "4": "Electronic Controller Development",
+        "5": "Data Connectivity Solutions",
+        "6": "End-to-end Product Development"
+      }
+    },
+    "staffing": {
+      "title": "Staffing Solutions",
+      "description": "Technical talent acquisition and project-based resourcing.",
+      "capabilities": {
+        "1": "Technical talent acquisition",
+        "2": "Contract staffing",
+        "3": "Project-based resourcing"
+      }
+    }
+  },
+  "languageSwitcher": {
+    "selectLanguage": "Select Language",
+    "currentLanguage": "Current: {language}"
+  },
+  "openPositionsSection": {
+    "title": "Open Positions",
+    "subtitle": "Find your next opportunity"
+  },
+  "jobDetails": {
+    "applyingFor": "Applying for",
+    "aboutTheRole": "About the Role",
+    "requirements": "Requirements",
+    "responsibilities": "Responsibilities",
+    "benefits": "Benefits",
+    "viewDetails": "View Details"
+  },
+  "emptyState": {
+    "noOpenPositions": "No Open Positions",
+    "noPositionsMessage": "We don't have any open positions at the moment. However, we're always looking for talented individuals.",
+    "sendResume": "Send your resume to",
+    "noPositionsFound": "No Positions Found",
+    "adjustFilters": "Try adjusting your filters to see more opportunities.",
+    "checkBackSoon": "Check back soon for new opportunities."
+  },
+  "jobFilters": {
+    "all": "All",
+    "engineering": "Engineering",
+    "marketing": "Marketing",
+    "sales": "Sales"
+  },
+  "enquiryForm": {
+    "title": "Enquire About This Product",
+    "defaultMessage": "I'm interested in {productName} (Model: {model}). Please provide more information about pricing, availability, and technical specifications.",
+    "sendEnquiry": "Send Enquiry",
+    "sending": "Sending...",
+    "successTitle": "Enquiry Sent!",
+    "successMessage": "Thank you for your interest in {productName}. Our team will get back to you within 24 hours."
+  },
+  "productItems": {},
+  "productPage": {
+    "exploreProducts": "Explore products",
+    "productsTitle": "Products",
+    "productsSubtitle": "Explore our complete range of products",
+    "viewCatalog": "View Catalog",
+    "enquire": "Enquire",
+    "customSolutions": "Custom Solutions",
+    "customSolutionsSubtitle": "IoT solutions we've built for our customers across industries",
+    "keyOfferings": "Key Offerings",
+    "keyOfferingsSubtitle": "What we deliver in this domain",
+    "interestedIn": "Interested in {category} Products?",
+    "contactForPricing": "Contact our team for pricing, technical specifications, or to discuss custom requirements for your project.",
+    "requestQuote": "Request Quote",
+    "exploreOtherProducts": "Explore Other Products"
+  },
+  "servicePage": {
+    "exploreCapabilities": "Explore capabilities",
+    "whatWeOffer": "What We Offer",
+    "offerSubtitle": "Comprehensive capabilities tailored to deliver exceptional results",
+    "ourProcess": "Our Process",
+    "processSubtitle": "A proven methodology that delivers results consistently",
+    "step": "Step",
+    "discovery": "Discovery",
+    "discoveryDescription": "Deep dive into your requirements, goals, and technical constraints",
+    "strategy": "Strategy",
+    "strategyDescription": "Detailed roadmap with milestones, deliverables, and timelines",
+    "execution": "Execution",
+    "executionDescription": "Agile development with regular updates and quality checkpoints",
+    "delivery": "Delivery",
+    "deliveryDescription": "Comprehensive testing, deployment, and ongoing support",
+    "readyToStart": "Ready to Start Your Project?",
+    "letsDiscuss": "Let's discuss how our {service} expertise can transform your ideas into reality.",
+    "contactOurTeam": "Contact Our Team",
+    "learnAboutUs": "Learn About Us",
+    "exploreOtherServices": "Explore Other Services",
+    "discoverServices": "Discover our full range of technology services",
+    "startYourProject": "Start Your Project"
+  }
+}

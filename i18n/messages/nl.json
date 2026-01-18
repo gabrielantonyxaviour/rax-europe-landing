@@ -1,0 +1,431 @@
+{
+  "common": {
+    "getInTouch": "Get in Touch",
+    "learnMore": "Learn More",
+    "explore": "Explore",
+    "viewDetails": "View Details",
+    "sendMessage": "Send Message",
+    "sending": "Sending...",
+    "scrollToExplore": "Scroll to explore",
+    "allRightsReserved": "All Rights Reserved",
+    "required": "required",
+    "capabilities": "Capabilities"
+  },
+  "nav": {
+    "products": "Products",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "more": "More",
+    "careers": "Careers",
+    "gallery": "Gallery",
+    "careersDescription": "Join our team of innovators and build the future of technology.",
+    "galleryDescription": "Explore photos from our company events and celebrations."
+  },
+  "hero": {
+    "badge": "25+ Years of Technology Excellence",
+    "headline": "Technology Enabler for",
+    "words": {
+      "iot": "IoT Solutions",
+      "automation": "Automation",
+      "surveillance": "e-Surveillance",
+      "blockchain": "Blockchain",
+      "ai": "AI Systems"
+    }
+  },
+  "about": {
+    "title": "Who We Are",
+    "since": "Since 2000",
+    "sinceDescription": "Pioneering technology solutions across industries",
+    "isoCertified": "ISO Certified",
+    "isoDescription": "ISO 9001:2015 certified by TUV South Asia",
+    "clients": "1,200+ Clients",
+    "clientsDescription": "Trusted by enterprises worldwide"
+  },
+  "domains": {
+    "title": "Our Expertise",
+    "subtitle": "Comprehensive technology solutions across multiple domains"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "End-to-end technology services tailored to your business needs",
+    "capabilities": "Capabilities"
+  },
+  "industries": {
+    "title": "Industries We Serve",
+    "subtitle": "Delivering innovative technology solutions across diverse sectors",
+    "manufacturing": "Manufacturing",
+    "banking": "Banking / NBFC",
+    "powerUtilities": "Power Utilities",
+    "processIndustry": "Process Industry",
+    "petroleum": "Petroleum",
+    "automotive": "Automotive",
+    "seaport": "Seaport",
+    "residential": "Residential",
+    "education": "Education",
+    "logistics": "Logistics / Warehouse",
+    "fashion": "Fashion",
+    "foodBeverages": "Food & Beverages",
+    "healthcare": "Healthcare",
+    "retail": "Retail"
+  },
+  "testimonials": {
+    "title": "What Our",
+    "titleHighlight": "Clients",
+    "titleEnd": "Say",
+    "subtitle": "Trusted by industry leaders across 17+ sectors worldwide"
+  },
+  "contactCta": {
+    "title": "Ready to Transform Your Business?",
+    "description": "Let's discuss how Rax Tech can help you achieve your technology goals. Our team of experts is ready to provide tailored solutions for your specific needs."
+  },
+  "statistics": {
+    "yearsExperience": "Years of Experience",
+    "productDesigns": "Product Designs",
+    "productCollaborations": "Product Collaborations",
+    "engineeringHours": "Engineering Hours",
+    "unitsSold": "Units Sold",
+    "customersServed": "Customers Served"
+  },
+  "aboutPage": {
+    "badge": "Over ons",
+    "headline": "25+ jaar",
+    "headlineHighlight": "Technologische excellentie",
+    "vision": "Onze visie",
+    "mission": "Onze missie",
+    "visionContent": "Een mondiale innovator worden door zeer betrouwbare kwaliteitsproducten te leveren, uitstekende after-sales ondersteuning te bieden en de beste werkgeverswaarden te handhaven.",
+    "missionContent": "Technologie-enabler die innovatieve producten en digitale oplossingen ontwerpt, ontwikkelt en produceert die de wereld slimmer, veiliger en zekerder maken.",
+    "statsTitle": "Onze impact in cijfers",
+    "statsSubtitle": "Meer dan twee decennia van consistente groei en succesverhalen van klanten.",
+    "journeyTitle": "Onze reis",
+    "journeySubtitle": "Belangrijke mijlpalen die RaxTech Europe hebben gevormd in de afgelopen {years}+ jaar.",
+    "timeline": {
+      "founded": {
+        "title": "Bedrijf opgericht",
+        "description": "RaxTech Europe werd opgericht met de visie om een mondiale technologie-enabler te worden."
+      },
+      "iso": {
+        "title": "ISO-certificering",
+        "description": "ISO 9001-certificering behaald, waarmee ons engagement voor kwaliteitsmanagementsystemen werd bevestigd."
+      },
+      "oem": {
+        "title": "100+ OEM-ontwerpen",
+        "description": "De mijlpaal van 100+ OEM- en ODM-ontwerpsamenwerkingen in meerdere industrieen bereikt."
+      },
+      "iot": {
+        "title": "Lancering IoT-oplossingen",
+        "description": "Uitbreiding naar Internet of Things-oplossingen, met externe monitoring en slimme apparaatintegratie."
+      },
+      "units": {
+        "title": "1M+ verkochte eenheden",
+        "description": "De mijlpaal van meer dan 1 miljoen verkochte eenheden in ons productportfolio gevierd."
+      },
+      "blockchain": {
+        "title": "Blockchain & Web3",
+        "description": "Blockchain- en Web3-diensten gelanceerd, de toekomst van gedecentraliseerde technologieen omarmd."
+      }
+    }
+  },
+  "contactPage": {
+    "title": "Let's start a",
+    "titleHighlight": "Conversation",
+    "subtitle": "Have a project in mind? We'd love to hear from you. Send us a message and let's create something amazing together.",
+    "officesTitle": "Our Worldwide Offices",
+    "officesSubtitle": "With offices spanning across Asia and Europe, we bring global expertise with local understanding to every project.",
+    "connectedTitle": "Connected Across Continents",
+    "connectedDescription": "Our strategic presence in India, Oman, and Poland enables us to serve clients across multiple time zones with round-the-clock support.",
+    "uniqueExpertise": "Each office brings unique regional expertise while maintaining our unified commitment to quality and innovation.",
+    "countries": "Countries",
+    "continents": "Continents",
+    "coverage": "Coverage",
+    "hq": "HQ"
+  },
+  "contactForm": {
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "company": "Company (optional)",
+    "message": "Message",
+    "firstNamePlaceholder": "John",
+    "lastNamePlaceholder": "Doe",
+    "emailPlaceholder": "john@company.com",
+    "phonePlaceholder": "98765 43210",
+    "companyPlaceholder": "Your Company",
+    "messagePlaceholder": "Tell us about your project or inquiry...",
+    "successTitle": "Message Sent!",
+    "successMessage": "Thank you for reaching out. Our team will get back to you within 24 hours."
+  },
+  "careers": {
+    "openPositions": "{count} Open Positie(s)",
+    "title": "Bouw de toekomst",
+    "titleHighlight": "met ons",
+    "subtitle": "Sluit je aan bij een team van innovators die IoT-, automatiserings- en bewakingsoplossingen creeren die industrieen wereldwijd transformeren.",
+    "viewPositions": "Bekijk openstaande posities",
+    "whyJoinTitle": "Waarom bij",
+    "whyJoinHighlight": "Rax Tech werken?",
+    "whyJoinSubtitle": "Maak deel uit van een team dat de toekomst van technologie vormgeeft",
+    "innovationFirst": "Innovatie eerst",
+    "innovationDescription": "Werk aan geavanceerde IoT- en automatiseringstechnologieen",
+    "growthOpportunities": "Groeimogelijkheden",
+    "growthDescription": "Duidelijke carrierepaden en continu leren",
+    "workLifeBalance": "Werk-privé balans",
+    "workLifeDescription": "Flexibele regelingen en ondersteunende cultuur",
+    "globalImpact": "Mondiale impact",
+    "globalDescription": "Oplossingen ingezet in meer dan 17 industrieen wereldwijd",
+    "collaborativeCulture": "Samenwerkingscultuur",
+    "collaborativeDescription": "Werk samen met ervaren ingenieurs en innovators",
+    "competitiveBenefits": "Competitieve voordelen",
+    "benefitsDescription": "Uitgebreide gezondheidsdekking en personeelsvoordelen",
+    "openPosition": "Open positie",
+    "applyNow": "Solliciteer nu"
+  },
+  "openPositionsSection": {
+    "title": "Openstaande posities",
+    "subtitle": "Vind je volgende kans"
+  },
+  "jobDetails": {
+    "applyingFor": "Solliciteren voor",
+    "aboutTheRole": "Over de rol",
+    "requirements": "Vereisten",
+    "responsibilities": "Verantwoordelijkheden",
+    "benefits": "Voordelen",
+    "viewDetails": "Bekijk details"
+  },
+  "emptyState": {
+    "noOpenPositions": "Geen openstaande posities",
+    "noPositionsMessage": "We hebben momenteel geen openstaande posities. We zijn echter altijd op zoek naar getalenteerde individuen.",
+    "sendResume": "Stuur je cv naar",
+    "noPositionsFound": "Geen posities gevonden",
+    "adjustFilters": "Probeer je filters aan te passen om meer kansen te zien.",
+    "checkBackSoon": "Kom binnenkort terug voor nieuwe kansen."
+  },
+  "jobFilters": {
+    "all": "Alle",
+    "engineering": "Engineering",
+    "marketing": "Marketing",
+    "sales": "Verkoop"
+  },
+  "gallery": {
+    "badge": "Gallery",
+    "title": "Our Moments &",
+    "titleHighlight": "Memories",
+    "subtitle": "Explore photos from our company events, celebrations, and team activities.",
+    "events": {
+      "pongal2025": {
+        "title": "Pongal Celebration 2025",
+        "description": "Celebrating the harvest festival with our team"
+      },
+      "environmental2025": {
+        "title": "Environmental Training 2025",
+        "description": "GEM training and environmental awareness program"
+      },
+      "sportsDay2022": {
+        "title": "Sports Day 2022",
+        "description": "Annual sports day celebration with team activities"
+      }
+    }
+  },
+  "footer": {
+    "products": "Products",
+    "services": "Services",
+    "company": "Company",
+    "aboutUs": "About Us",
+    "certification": "ISO 9001:2015 Certified",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email"
+  },
+  "products": {
+    "iot": {
+      "title": "IoT",
+      "headline": "Sense the World Smarter",
+      "description": "Smart connected devices for remote monitoring, real-time data collection, and industrial automation.",
+      "offerings": {
+        "1": "Remote monitoring solutions",
+        "2": "Smart sensors & connectivity",
+        "3": "Real-time data analytics",
+        "4": "Industrial IoT implementations"
+      }
+    },
+    "eSurveillance": {
+      "title": "E-Surveillance",
+      "headline": "Secure. Monitor. Protect.",
+      "description": "Comprehensive security automation and surveillance solutions with alarm panels, video analytics, and access control.",
+      "offerings": {
+        "1": "Alarm automation panels",
+        "2": "Video analytics",
+        "3": "Remote monitoring systems",
+        "4": "Access control solutions"
+      }
+    },
+    "software": {
+      "title": "Software",
+      "headline": "Intelligent Software Solutions",
+      "description": "Enterprise software platforms for monitoring, management, and IoT applications.",
+      "offerings": {
+        "1": "Central monitoring software",
+        "2": "IoT platform & mobile apps",
+        "3": "Access control management",
+        "4": "Campus management systems"
+      }
+    },
+    "marineTechnology": {
+      "title": "Marine Technology",
+      "headline": "Navigate with Confidence",
+      "description": "Deep Sea Master boat management systems for maritime navigation and control.",
+      "offerings": {
+        "1": "Bridge control systems",
+        "2": "Navigation management",
+        "3": "Satellite communication",
+        "4": "Maritime data solutions"
+      }
+    },
+    "hse": {
+      "title": "HSE",
+      "headline": "Health, Safety & Environment",
+      "description": "Comprehensive HSE solutions for workplace safety, environmental monitoring, and compliance.",
+      "offerings": {
+        "1": "Assembly area monitoring",
+        "2": "LTI tracking systems",
+        "3": "Environmental sensors",
+        "4": "Safety alert devices"
+      }
+    },
+    "automation": {
+      "title": "Automation",
+      "headline": "Nullify Your Workability Errors",
+      "description": "Industrial automation panels and control systems for manufacturing and process industries.",
+      "offerings": {
+        "1": "PLC Panels",
+        "2": "VFD Panels",
+        "3": "Protection panels",
+        "4": "Annunciator systems"
+      }
+    }
+  },
+  "servicesPage": {
+    "embeddedDesign": {
+      "title": "Embedded Design",
+      "description": "End-to-end embedded systems design from concept to production.",
+      "capabilities": {
+        "1": "Hardware Design & PCB Layout",
+        "2": "Schematic Design",
+        "3": "Prototyping & Production Support",
+        "4": "FPGA Design Services",
+        "5": "System-level Design",
+        "6": "Testing & Validation",
+        "7": "Obsolescence Management"
+      }
+    },
+    "softwareDevelopment": {
+      "title": "Software Development",
+      "description": "Custom software solutions for web, desktop, and enterprise applications.",
+      "capabilities": {
+        "1": "Custom Application Development",
+        "2": "Product Development",
+        "3": "ERP Software Development",
+        "4": "Integration Services",
+        "5": "Implementation & Support",
+        "6": "Windows & Web Applications",
+        "7": "Full Application Lifecycle Management"
+      }
+    },
+    "ai": {
+      "title": "Artificial Intelligence",
+      "description": "AI-powered solutions for automation, analytics, and intelligent systems.",
+      "capabilities": {
+        "1": "Machine Learning Integration",
+        "2": "Predictive Analytics",
+        "3": "Computer Vision Solutions",
+        "4": "AI-powered Automation",
+        "5": "Natural Language Processing",
+        "6": "Edge AI Implementation"
+      }
+    },
+    "blockchain": {
+      "title": "Blockchain & Web3",
+      "description": "Decentralized technologies and Web3 solutions for enterprise applications.",
+      "capabilities": {
+        "1": "Blockchain Consulting",
+        "2": "Smart Contract Development",
+        "3": "Web3 Integration Services",
+        "4": "Decentralized Application Development",
+        "5": "Tokenization Solutions",
+        "6": "Blockchain Security Audits"
+      }
+    },
+    "oemOdm": {
+      "title": "OEM & ODM",
+      "description": "Original equipment and design manufacturing with 100+ successful projects.",
+      "capabilities": {
+        "1": "Original Equipment Manufacturing",
+        "2": "Original Design Manufacturing",
+        "3": "Product Digitization",
+        "4": "Electronic Controller Development",
+        "5": "Data Connectivity Solutions",
+        "6": "End-to-end Product Development"
+      }
+    },
+    "staffing": {
+      "title": "Staffing Solutions",
+      "description": "Technical talent acquisition and project-based resourcing.",
+      "capabilities": {
+        "1": "Technical talent acquisition",
+        "2": "Contract staffing",
+        "3": "Project-based resourcing"
+      }
+    }
+  },
+  "languageSwitcher": {
+    "selectLanguage": "Select Language",
+    "currentLanguage": "Current: {language}"
+  },
+  "enquiryForm": {
+    "title": "Vraag over dit product",
+    "defaultMessage": "Ik ben geïnteresseerd in {productName} (Model: {model}). Gelieve meer informatie te verstrekken over prijzen, beschikbaarheid en technische specificaties.",
+    "sendEnquiry": "Vraag versturen",
+    "sending": "Verzenden...",
+    "successTitle": "Vraag verzonden!",
+    "successMessage": "Bedankt voor uw interesse in {productName}. Ons team neemt binnen 24 uur contact met u op."
+  },
+  "productItems": {},
+  "productPage": {
+    "exploreProducts": "Producten verkennen",
+    "productsTitle": "Producten",
+    "productsSubtitle": "Ontdek ons volledige productassortiment",
+    "viewCatalog": "Catalogus bekijken",
+    "enquire": "Informeren",
+    "customSolutions": "Maatwerkoplossingen",
+    "customSolutionsSubtitle": "IoT-oplossingen die we voor onze klanten uit verschillende sectoren hebben gebouwd",
+    "keyOfferings": "Belangrijkste aanbiedingen",
+    "keyOfferingsSubtitle": "Wat we in dit domein leveren",
+    "interestedIn": "Geïnteresseerd in {category} producten?",
+    "contactForPricing": "Neem contact op met ons team voor prijzen, technische specificaties of om aangepaste vereisten voor uw project te bespreken.",
+    "requestQuote": "Offerte aanvragen",
+    "exploreOtherProducts": "Andere producten verkennen"
+  },
+  "servicePage": {
+    "exploreCapabilities": "Mogelijkheden verkennen",
+    "whatWeOffer": "Wat we bieden",
+    "offerSubtitle": "Uitgebreide mogelijkheden op maat voor uitzonderlijke resultaten",
+    "ourProcess": "Ons proces",
+    "processSubtitle": "Een bewezen methodologie die consistent resultaten oplevert",
+    "step": "Stap",
+    "discovery": "Ontdekking",
+    "discoveryDescription": "Diepgaande analyse van uw vereisten, doelen en technische beperkingen",
+    "strategy": "Strategie",
+    "strategyDescription": "Gedetailleerde roadmap met mijlpalen, deliverables en tijdlijnen",
+    "execution": "Uitvoering",
+    "executionDescription": "Agile ontwikkeling met regelmatige updates en kwaliteitscontroles",
+    "delivery": "Levering",
+    "deliveryDescription": "Uitgebreide tests, implementatie en doorlopende ondersteuning",
+    "readyToStart": "Klaar om uw project te starten?",
+    "letsDiscuss": "Laten we bespreken hoe onze expertise in {service} uw ideeën in werkelijkheid kan omzetten.",
+    "contactOurTeam": "Contact opnemen met ons team",
+    "learnAboutUs": "Meer over ons",
+    "exploreOtherServices": "Andere diensten verkennen",
+    "discoverServices": "Ontdek ons volledige assortiment technologiediensten",
+    "startYourProject": "Start uw project"
+  }
+}

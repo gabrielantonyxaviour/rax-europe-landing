@@ -120,8 +120,8 @@ export function NavbarLogo({ className }: NavbarLogoProps) {
   return (
     <Link href="/" className={cn("flex items-center", className)}>
       <Image
-        src="/images/logo.png"
-        alt="Rax Tech"
+        src="/offices/rax-europe-logo.png"
+        alt="Rax Tech Europe"
         width={40}
         height={40}
         className="h-8 lg:h-9 xl:h-10 w-auto"

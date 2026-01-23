@@ -1,0 +1,11 @@
+# RaxTech Europe - robots.txt
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /email-preview/
+
+# Sitemap location
+Sitemap: https://raxtecheurope.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

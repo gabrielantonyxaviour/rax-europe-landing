@@ -224,9 +224,6 @@ export function Footer() {
           <p className="text-xs sm:text-sm text-muted-foreground text-center md:text-left">
             &copy; {currentYear} {SITE_OFFICE.name}. {tCommon("allRightsReserved")}.
           </p>
-          <div className="flex items-center space-x-2 text-xs sm:text-sm text-muted-foreground">
-            <span>{t("certification")}</span>
-          </div>
         </div>
       </div>
     </footer>

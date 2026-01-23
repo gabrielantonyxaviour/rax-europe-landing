@@ -122,9 +122,9 @@ export function NavbarLogo({ className }: NavbarLogoProps) {
       <Image
         src="/offices/rax-europe-logo.png"
         alt="Rax Tech Europe"
-        width={40}
-        height={40}
-        className="h-8 lg:h-9 xl:h-10 w-auto"
+        width={48}
+        height={48}
+        className="h-8 lg:h-11 xl:h-12 w-auto"
       />
     </Link>
   );

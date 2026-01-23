@@ -69,11 +69,11 @@ export function CookieConsent() {
           className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6"
         >
           <div className="mx-auto max-w-7xl">
-            <div className="relative rounded-2xl border border-neutral-200 bg-white p-6 shadow-2xl">
+            <div className="relative rounded-2xl border border-neutral-800 bg-black p-6 shadow-2xl">
               {/* Close button */}
               <button
                 onClick={() => setShowBanner(false)}
-                className="absolute right-4 top-4 text-neutral-400 hover:text-neutral-600 transition-colors"
+                className="absolute right-4 top-4 text-neutral-500 hover:text-neutral-300 transition-colors"
                 aria-label="Close cookie banner"
               >
                 <X className="h-5 w-5" />
@@ -87,15 +87,15 @@ export function CookieConsent() {
                       <Cookie className="h-10 w-10 text-red-600" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-neutral-900 mb-2">
+                      <h3 className="text-lg font-semibold text-white mb-2">
                         Cookie Preferences
                       </h3>
-                      <p className="text-sm text-neutral-600 max-w-2xl">
+                      <p className="text-sm text-neutral-400 max-w-2xl">
                         We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic.
                         By clicking "Accept All", you consent to our use of cookies.{" "}
                         <button
                           onClick={() => setShowSettings(true)}
-                          className="text-red-600 hover:text-red-700 underline font-medium"
+                          className="text-red-600 hover:text-red-500 underline font-medium"
                         >
                           Customize preferences
                         </button>
@@ -106,7 +106,7 @@ export function CookieConsent() {
                   <div className="flex flex-col sm:flex-row gap-3 md:flex-shrink-0">
                     <button
                       onClick={handleRejectAll}
-                      className="px-6 py-2.5 text-sm font-medium text-neutral-700 bg-neutral-100 hover:bg-neutral-200 rounded-lg transition-colors"
+                      className="px-6 py-2.5 text-sm font-medium text-neutral-300 bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 rounded-lg transition-colors"
                     >
                       Reject All
                     </button>
@@ -122,27 +122,27 @@ export function CookieConsent() {
                 // Settings panel
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-semibold text-neutral-900 mb-2">
+                    <h3 className="text-lg font-semibold text-white mb-2">
                       Cookie Settings
                     </h3>
-                    <p className="text-sm text-neutral-600">
+                    <p className="text-sm text-neutral-400">
                       Choose which cookies you want to accept. You can change these settings at any time.
                     </p>
                   </div>
 
                   <div className="space-y-4">
                     {/* Necessary Cookies */}
-                    <div className="flex items-start justify-between p-4 bg-neutral-50 rounded-lg">
+                    <div className="flex items-start justify-between p-4 bg-neutral-900 border border-neutral-800 rounded-lg">
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
-                          <h4 className="text-sm font-semibold text-neutral-900">
+                          <h4 className="text-sm font-semibold text-white">
                             Necessary Cookies
                           </h4>
-                          <span className="px-2 py-0.5 text-xs font-medium text-neutral-600 bg-neutral-200 rounded">
+                          <span className="px-2 py-0.5 text-xs font-medium text-neutral-400 bg-neutral-800 rounded">
                             Always Active
                           </span>
                         </div>
-                        <p className="text-xs text-neutral-600">
+                        <p className="text-xs text-neutral-500">
                           Essential for the website to function properly. Cannot be disabled.
                         </p>
                       </div>
@@ -150,17 +150,17 @@ export function CookieConsent() {
                         type="checkbox"
                         checked={true}
                         disabled
-                        className="mt-1 h-5 w-5 rounded border-neutral-300"
+                        className="mt-1 h-5 w-5 rounded border-neutral-700 bg-neutral-800"
                       />
                     </div>
 
                     {/* Analytics Cookies */}
-                    <div className="flex items-start justify-between p-4 bg-neutral-50 rounded-lg">
+                    <div className="flex items-start justify-between p-4 bg-neutral-900 border border-neutral-800 rounded-lg">
                       <div className="flex-1">
-                        <h4 className="text-sm font-semibold text-neutral-900 mb-1">
+                        <h4 className="text-sm font-semibold text-white mb-1">
                           Analytics Cookies
                         </h4>
-                        <p className="text-xs text-neutral-600">
+                        <p className="text-xs text-neutral-500">
                           Help us understand how visitors interact with our website.
                         </p>
                       </div>
@@ -170,17 +170,17 @@ export function CookieConsent() {
                         onChange={(e) =>
                           setPreferences({ ...preferences, analytics: e.target.checked })
                         }
-                        className="mt-1 h-5 w-5 rounded border-neutral-300 text-red-600 focus:ring-red-500"
+                        className="mt-1 h-5 w-5 rounded border-neutral-700 text-red-600 focus:ring-red-500 bg-neutral-800"
                       />
                     </div>
 
                     {/* Marketing Cookies */}
-                    <div className="flex items-start justify-between p-4 bg-neutral-50 rounded-lg">
+                    <div className="flex items-start justify-between p-4 bg-neutral-900 border border-neutral-800 rounded-lg">
                       <div className="flex-1">
-                        <h4 className="text-sm font-semibold text-neutral-900 mb-1">
+                        <h4 className="text-sm font-semibold text-white mb-1">
                           Marketing Cookies
                         </h4>
-                        <p className="text-xs text-neutral-600">
+                        <p className="text-xs text-neutral-500">
                           Used to track visitors across websites for marketing purposes.
                         </p>
                       </div>
@@ -190,15 +190,15 @@ export function CookieConsent() {
                         onChange={(e) =>
                           setPreferences({ ...preferences, marketing: e.target.checked })
                         }
-                        className="mt-1 h-5 w-5 rounded border-neutral-300 text-red-600 focus:ring-red-500"
+                        className="mt-1 h-5 w-5 rounded border-neutral-700 text-red-600 focus:ring-red-500 bg-neutral-800"
                       />
                     </div>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-neutral-200">
+                  <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-neutral-800">
                     <button
                       onClick={() => setShowSettings(false)}
-                      className="flex-1 px-6 py-2.5 text-sm font-medium text-neutral-700 bg-neutral-100 hover:bg-neutral-200 rounded-lg transition-colors"
+                      className="flex-1 px-6 py-2.5 text-sm font-medium text-neutral-300 bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 rounded-lg transition-colors"
                     >
                       Back
                     </button>

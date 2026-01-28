@@ -234,12 +234,7 @@ function NavItems({ getTranslatedLabel, getTranslatedDescription }: NavItemsProp
                   {getTranslatedLabel(item.label)}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="!bg-black !border-neutral-800 !rounded-xl !shadow-2xl overflow-hidden">
-                  <ul className={cn(
-                    "grid gap-0",
-                    item.label === "More"
-                      ? "w-[280px] grid-cols-1"
-                      : "w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px]"
-                  )}>
+                  <ul className="grid gap-0 w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                     {item.items.map((subItem) => (
                       <li key={subItem.label}>
                         <NavigationMenuLink asChild>

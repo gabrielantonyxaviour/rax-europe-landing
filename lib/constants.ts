@@ -714,10 +714,6 @@ export const NAV_ITEMS = [
     href: "/about",
   },
   {
-    label: "Contact",
-    href: "/contact",
-  },
-  {
     label: "More",
     items: [
       {

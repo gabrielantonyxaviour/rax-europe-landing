@@ -1,7 +1,7 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { locales, defaultLocale, countryToLocale, type Locale } from './i18n/config';
+import { defaultLocale, countryToLocale, type Locale } from './i18n/config';
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
@@ -19,24 +19,11 @@ export async function middleware(req: NextRequest) {
     const localeCookie = req.cookies.get('NEXT_LOCALE')?.value;
 
     if (!localeCookie) {
-      // Try to detect locale from Accept-Language header
-      const acceptLanguage = req.headers.get('accept-language');
+      // Default to English for all international users
       let detectedLocale: Locale = defaultLocale;
 
-      if (acceptLanguage) {
-        const browserLocales = acceptLanguage
-          .split(',')
-          .map(lang => lang.split(';')[0].trim().split('-')[0]);
-
-        for (const browserLocale of browserLocales) {
-          if (locales.includes(browserLocale as Locale)) {
-            detectedLocale = browserLocale as Locale;
-            break;
-          }
-        }
-      }
-
-      // Also try to detect from Cloudflare country header (if available)
+      // Only use local language if user is from a European country
+      // Try Cloudflare country header first
       const country = req.headers.get('cf-ipcountry');
       if (country && countryToLocale[country]) {
         detectedLocale = countryToLocale[country];

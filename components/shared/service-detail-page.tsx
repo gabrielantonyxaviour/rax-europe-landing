@@ -46,6 +46,10 @@ const serviceColors: Record<string, { gradient: string; glow: string }> = {
     gradient: "from-blue-500/20 via-cyan-500/10 to-transparent",
     glow: "hsl(200 80% 50% / 0.15)",
   },
+  "embedded-oem-odm": {
+    gradient: "from-blue-500/20 via-cyan-500/10 to-transparent",
+    glow: "hsl(200 80% 50% / 0.15)",
+  },
   "software-development": {
     gradient: "from-purple-500/20 via-violet-500/10 to-transparent",
     glow: "hsl(270 80% 50% / 0.15)",
@@ -444,6 +448,7 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
   // Map service IDs to translation keys
   const serviceTranslationKeys: Record<string, string> = {
     "embedded-design": "embeddedDesign",
+    "embedded-oem-odm": "embeddedOemOdm",
     "software-development": "softwareDevelopment",
     "ai": "ai",
     "blockchain": "blockchain",
@@ -454,6 +459,7 @@ export function ServiceDetailPage({ serviceId }: ServiceDetailPageProps) {
   // Number of capabilities per service
   const capabilitiesCount: Record<string, number> = {
     "embedded-design": 7,
+    "embedded-oem-odm": 11,
     "software-development": 7,
     "ai": 6,
     "blockchain": 6,

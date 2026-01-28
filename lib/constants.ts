@@ -186,7 +186,7 @@ export const SERVICES = [
   {
     id: "embedded-oem-odm",
     title: "Embedded/OEM/ODM",
-    route: "/services/embedded-design",
+    route: "/services/embedded-oem-odm",
     icon: "CircuitBoard",
     image: "/services/embedded-design.png",
     description:
@@ -713,21 +713,6 @@ export const NAV_ITEMS = [
     label: "About",
     href: "/about",
   },
-  {
-    label: "More",
-    items: [
-      {
-        label: "Careers",
-        href: "/careers",
-        description: "Join our team of innovators and build the future of technology.",
-      },
-      {
-        label: "Gallery",
-        href: "/gallery",
-        description: "Explore photos from our company events and celebrations.",
-      },
-    ],
-  },
 ] as const;
 
 export const FOOTER_LINKS = {
@@ -738,8 +723,6 @@ export const FOOTER_LINKS = {
   services: SERVICES.map((s) => ({ label: s.title, href: s.route })),
   company: [
     { label: "About Us", href: "/about" },
-    { label: "Careers", href: "/careers" },
-    { label: "Gallery", href: "/gallery" },
     { label: "Contact", href: "/contact" },
   ],
 } as const;

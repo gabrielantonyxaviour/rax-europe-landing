@@ -92,6 +92,15 @@
     "unitsSold": "Units Sold",
     "customersServed": "Customers Served"
   },
+  "about": {
+    "certifications": {
+      "titlePrefix": "Our",
+      "titleHighlight": "Certifications",
+      "subtitle": "Committed to quality, excellence, and continuous improvement",
+      "iso": "ISO 9001:2015",
+      "zed": "ZED Silver Certified"
+    }
+  },
   "aboutPage": {
     "badge": "About Us",
     "headline": "25+ Years of",
@@ -143,7 +152,9 @@
     "countries": "Countries",
     "continents": "Continents",
     "coverage": "Coverage",
-    "hq": "HQ"
+    "hq": "HQ",
+    "certificationsTitle": "Our Certifications",
+    "certificationsSubtitle": "Committed to quality and excellence"
   },
   "contactForm": {
     "firstName": "First Name",
@@ -240,6 +251,7 @@
     "gallery": "Gallery",
     "contact": "Contact",
     "certification": "ISO 9001:2015 Certified",
+    "certified": "Certified",
     "address": "Address",
     "phone": "Phone",
     "email": "Email"
@@ -324,6 +336,23 @@
         "5": "System-level Design",
         "6": "Testing & Validation",
         "7": "Obsolescence Management"
+      }
+    },
+    "embeddedOemOdm": {
+      "title": "Embedded/OEM/ODM",
+      "description": "End-to-end embedded systems design, OEM & ODM solutions from concept to production.",
+      "capabilities": {
+        "1": "Hardware Design & PCB Layout",
+        "2": "Schematic Design",
+        "3": "Prototyping & Production Support",
+        "4": "FPGA Design Services",
+        "5": "System-level Design",
+        "6": "Testing & Validation",
+        "7": "Original Equipment Manufacturing",
+        "8": "Original Design Manufacturing",
+        "9": "Product Digitization",
+        "10": "Electronic Controller Development",
+        "11": "Obsolescence Management"
       }
     },
     "softwareDevelopment": {
